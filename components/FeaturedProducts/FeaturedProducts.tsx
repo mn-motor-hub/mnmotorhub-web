@@ -1,9 +1,24 @@
 import { ArrowRight } from 'lucide-react'
-import { products } from '@/lib/mock/products'
-import ProductCard from './ProductCard'
+import { getCatalog } from '@/lib/api/catalog'
+import ProductCard from '@/components/ProductCard/ProductCard'
 import styles from './FeaturedProducts.module.css'
 
-export default function FeaturedProducts() {
+const FEATURED_LIMIT = 6
+
+export default async function FeaturedProducts() {
+  let items: Awaited<ReturnType<typeof getCatalog>>['data'] = []
+
+  try {
+    const result = await getCatalog({ limit: FEATURED_LIMIT })
+    items = result.data
+  } catch {
+    return null
+  }
+
+  if (items.length === 0) {
+    return null
+  }
+
   return (
     <section className={styles.section}>
       <div className={styles.header}>
@@ -18,8 +33,8 @@ export default function FeaturedProducts() {
       </div>
 
       <div className={styles.grid}>
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+        {items.map((item) => (
+          <ProductCard key={item.codigoInterno} item={item} />
         ))}
       </div>
     </section>
