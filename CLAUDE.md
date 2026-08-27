@@ -1,5 +1,35 @@
 # CLAUDE.md — MN Motor Hub
 
+## Mobile First — Regla crítica
+
+**Nuestros usuarios acceden principalmente desde teléfonos.** Toda UI se diseña y codea para móvil primero y se expande hacia escritorio.
+
+### Breakpoints
+```css
+/* Base → móvil (375px+) — aquí va todo el CSS por defecto */
+@media (min-width: 768px)  { /* tablet  */ }
+@media (min-width: 1280px) { /* desktop */ }
+```
+
+### Reglas obligatorias
+- **Media queries**: siempre `min-width`. Nunca `max-width` salvo casos excepcionales justificados.
+- **Touch targets**: mínimo `44 × 44px` para cualquier elemento interactivo.
+- **Inputs**: `font-size: max(1rem, 16px)` — previene zoom automático en iOS Safari.
+- **Spacing táctil**: mínimo `8px` de separación entre elementos interactivos adyacentes.
+- **Layouts**: columna única en mobile; grid/flex multi-columna solo desde `768px+`.
+- **Tipografía**: nunca menos de `14px` en mobile.
+- **Imágenes**: siempre `max-width: 100%`, sin anchos fijos en mobile.
+- **No hover-only**: toda interacción hover debe tener equivalente táctil.
+- **Navbar**: en mobile colapsa a menú hamburguesa (ya implementado con `'use client'`).
+
+### Orden de revisión antes de hacer PR
+1. Redimensionar a 375px — ¿se ve y funciona?
+2. Redimensionar a 768px — ¿la transición es correcta?
+3. Targets táctiles ≥ 44px verificados.
+4. Sin scroll horizontal no intencional.
+
+---
+
 ## Contexto del proyecto
 
 Tienda online de repuestos automotrices (carros y motos) para el mercado venezolano.
