@@ -30,7 +30,7 @@ Layout (app/layout.tsx)
 |---|---|---|
 | Logo | `/images/logo-motor-hub.png` | ✅ activo |
 | Link 1 | Catálogo → `/catalogo` | ✅ activo |
-| Link 2 | Productos → `#categorias` (smooth scroll) | ✅ activo |
+| Link 2 | Categorías → `/categorias` | ✅ activo |
 | Link 3 | ¿Por qué nosotros? → `#por-que-nosotros` | ✅ activo |
 | Link 4 | Contacto → `https://wa.me/584221649320` (new tab) | ✅ activo |
 | Cuenta / Carrito | Removidos | — |

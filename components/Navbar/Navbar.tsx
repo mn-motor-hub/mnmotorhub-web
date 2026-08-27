@@ -12,7 +12,7 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   { label: 'Catálogo', href: '/catalogo' },
-  { label: 'Productos', href: '#categorias' },
+  { label: 'Categorías', href: '/categorias' },
   { label: '¿Por qué nosotros?', href: '#por-que-nosotros' },
   { label: 'Contacto', href: 'https://wa.me/584221649320', target: '_blank', rel: 'noopener noreferrer' },
 ]
