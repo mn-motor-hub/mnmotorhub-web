@@ -18,7 +18,7 @@ export default async function CategoriasPage() {
   }
 
   return (
-    <PageLayout title="Categorías" subtitle="Explorá los repuestos por categoría principal">
+    <PageLayout title="Categorías" subtitle="Explorá los repuestos por categoría principal" compact>
       <CategoriasGrid categorias={categorias} />
     </PageLayout>
   )

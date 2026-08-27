@@ -27,6 +27,20 @@
   }
 }
 
+.heroBandCompact {
+  padding: 24px var(--spacing-edge);
+}
+
+.heroTitleCompact {
+  font-size: 22px;
+}
+
+@media (min-width: 768px) {
+  .heroTitleCompact {
+    font-size: 26px;
+  }
+}
+
 .heroSubtitle {
   font-family: var(--font-inter);
   font-size: 18px;

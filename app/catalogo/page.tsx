@@ -25,7 +25,7 @@ export default async function CatalogPage({ searchParams }: CatalogPageProps) {
   const { data, meta } = await getCatalog({ page, limit: PAGE_SIZE, q })
 
   return (
-    <PageLayout title="Catálogo" subtitle="Repuestos disponibles para carros y motos">
+    <PageLayout title="Catálogo" subtitle="Repuestos disponibles para carros y motos" compact>
       <CatalogSearch />
       <CatalogList items={data} hasQuery={Boolean(q)} />
       <Pagination

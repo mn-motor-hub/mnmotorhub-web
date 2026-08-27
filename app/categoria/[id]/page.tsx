@@ -38,7 +38,7 @@ export default async function CategoriaPage({ params, searchParams }: CategoriaP
   const { data, meta } = await getCatalog({ page, limit: PAGE_SIZE, categoriaId: id })
 
   return (
-    <PageLayout title={categoria.nombre} subtitle="Artículos disponibles en esta categoría">
+    <PageLayout title={categoria.nombre} subtitle="Artículos disponibles en esta categoría" compact>
       <CatalogList
         items={data}
         emptyTitle="Sin artículos"
