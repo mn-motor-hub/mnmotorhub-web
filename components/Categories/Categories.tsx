@@ -18,12 +18,9 @@ export default function Categories() {
             Encontrá lo que tu vehículo necesita hoy
           </p>
         </div>
-        <div className="soon-wrap">
-          <span className="soon-label">Próximamente</span>
-          <Link href="#" className={styles.viewAll}>
-            Explorar todo <ArrowRight size={16} />
-          </Link>
-        </div>
+        <Link href="/categorias" className={styles.viewAll}>
+          Explorar todo <ArrowRight size={16} />
+        </Link>
       </div>
 
       <div className={styles.bentoGrid}>

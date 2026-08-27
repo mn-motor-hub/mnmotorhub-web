@@ -5,8 +5,22 @@ export interface CatalogItem {
   marca: string | null
   categoria: string | null
   subcategoria: string | null
+  // Pendiente de deploy en el backend — puede no venir todavía en la respuesta.
+  categoriaId?: string | null
+  subcategoriaId?: string | null
   precioVenta: number | null
   disponible: boolean
+}
+
+export interface Subcategoria {
+  id: string
+  nombre: string
+}
+
+export interface Categoria {
+  id: string
+  nombre: string
+  subcategorias: Subcategoria[]
 }
 
 export interface CatalogListMeta {

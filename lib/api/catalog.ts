@@ -1,4 +1,4 @@
-import type { CatalogItem, CatalogListResponse } from './types'
+import type { CatalogItem, CatalogListResponse, Categoria } from './types'
 
 const CATALOG_REVALIDATE_SECONDS = 90
 
@@ -64,4 +64,25 @@ export async function getCatalogItem(codigoInterno: string): Promise<CatalogItem
 
   const json = (await res.json()) as { data: CatalogItem }
   return json.data
+}
+
+// Pendiente de deploy en el backend (ver docs/CONTENIDO_ACTUAL.md) — puede
+// devolver 404 mientras esa ruta no exista todavía. El caller decide cómo
+// degradar (ver app/categorias/page.tsx).
+export async function getCategorias(): Promise<Categoria[]> {
+  const res = await fetch(`${getApiBaseUrl()}/api/catalog/categorias`, {
+    next: { revalidate: CATALOG_REVALIDATE_SECONDS },
+  })
+
+  if (!res.ok) {
+    throw new Error(`Error al obtener las categorías: ${res.status}`)
+  }
+
+  const json = (await res.json()) as { data: Categoria[] }
+  return json.data
+}
+
+export async function getCategoriaById(categoriaId: string): Promise<Categoria | null> {
+  const categorias = await getCategorias()
+  return categorias.find((c) => c.id === categoriaId) ?? null
 }

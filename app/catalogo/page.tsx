@@ -28,7 +28,12 @@ export default async function CatalogPage({ searchParams }: CatalogPageProps) {
     <PageLayout title="Catálogo" subtitle="Repuestos disponibles para carros y motos">
       <CatalogSearch />
       <CatalogList items={data} hasQuery={Boolean(q)} />
-      <Pagination page={meta.page} totalPages={meta.totalPages} q={q} />
+      <Pagination
+        page={meta.page}
+        totalPages={meta.totalPages}
+        basePath="/catalogo"
+        params={q ? { q } : undefined}
+      />
     </PageLayout>
   )
 }
