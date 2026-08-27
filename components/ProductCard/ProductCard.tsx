@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { PackageSearch } from 'lucide-react'
 import type { CatalogItem } from '@/lib/api/types'
+import { formatPrice } from '@/lib/format'
 import AvailabilityBadge from '@/components/AvailabilityBadge/AvailabilityBadge'
 import styles from './ProductCard.module.css'
 
@@ -13,19 +13,15 @@ export default function ProductCard({ item }: ProductCardProps) {
 
   return (
     <article className={styles.card}>
-      <Link href={href} className={styles.imageLink}>
-        <div className={styles.imagePlaceholder}>
-          <PackageSearch size={32} strokeWidth={1.5} />
-        </div>
-        <span className={styles.category}>{item.categoria}</span>
-      </Link>
       <div className={styles.body}>
+        {item.subcategoria && <span className={styles.subcategory}>{item.subcategoria}</span>}
         <Link href={href} className={styles.name}>
           {item.nombre}
         </Link>
         {item.marca && <span className={styles.brand}>{item.marca}</span>}
+        {item.descripcion && <p className={styles.description}>{item.descripcion}</p>}
         <div className={styles.footer}>
-          <span className={styles.price}>${item.precioVenta.toFixed(2)}</span>
+          <span className={styles.price}>{formatPrice(item.precioVenta)}</span>
           <AvailabilityBadge disponible={item.disponible} />
         </div>
       </div>

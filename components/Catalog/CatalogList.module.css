@@ -1,19 +1,6 @@
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-gutter);
-}
-
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1280px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.list {
+  display: flex;
+  flex-direction: column;
 }
 
 /* ─── Empty state ────────────────────────────────────────────── */

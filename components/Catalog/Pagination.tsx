@@ -5,9 +5,16 @@ import styles from './Pagination.module.css'
 interface PaginationProps {
   page: number
   totalPages: number
+  q?: string
 }
 
-export default function Pagination({ page, totalPages }: PaginationProps) {
+function buildHref(page: number, q?: string): string {
+  const params = new URLSearchParams({ page: String(page) })
+  if (q) params.set('q', q)
+  return `/catalogo?${params.toString()}`
+}
+
+export default function Pagination({ page, totalPages, q }: PaginationProps) {
   if (totalPages <= 1) {
     return null
   }
@@ -20,7 +27,7 @@ export default function Pagination({ page, totalPages }: PaginationProps) {
   return (
     <nav className={styles.pagination} aria-label="Paginación de catálogo">
       <Link
-        href={`/catalogo?page=${prevPage}`}
+        href={buildHref(prevPage, q)}
         aria-disabled={isFirst}
         tabIndex={isFirst ? -1 : undefined}
         className={`${styles.control} ${isFirst ? styles.disabled : ''}`}
@@ -32,7 +39,7 @@ export default function Pagination({ page, totalPages }: PaginationProps) {
         Página {page} de {totalPages}
       </span>
       <Link
-        href={`/catalogo?page=${nextPage}`}
+        href={buildHref(nextPage, q)}
         aria-disabled={isLast}
         tabIndex={isLast ? -1 : undefined}
         className={`${styles.control} ${isLast ? styles.disabled : ''}`}
