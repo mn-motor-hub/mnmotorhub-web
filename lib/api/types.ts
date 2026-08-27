@@ -5,9 +5,8 @@ export interface CatalogItem {
   marca: string | null
   categoria: string | null
   subcategoria: string | null
-  // Pendiente de deploy en el backend — puede no venir todavía en la respuesta.
-  categoriaId?: string | null
-  subcategoriaId?: string | null
+  categoriaId: string | null
+  subcategoriaId: string | null
   precioVenta: number | null
   disponible: boolean
 }
