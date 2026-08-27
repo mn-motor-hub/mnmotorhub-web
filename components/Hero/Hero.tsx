@@ -1,6 +1,9 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { BadgeCheck, Truck, Headphones } from 'lucide-react'
 import styles from './Hero.module.css'
+
+const WHATSAPP_URL = 'https://wa.me/584221649320?text=Hola%2C%20quiero%20consultar%20sobre%20un%20repuesto'
 
 export default function Hero() {
   return (
@@ -37,18 +40,17 @@ export default function Hero() {
             Kits completos y repuestos de mantenimiento con envío a todo Venezuela. Stock real, respuesta inmediata.
           </p>
           <div className={styles.ctas}>
-            <div className="soon-wrap">
-              <span className="soon-label">Próximamente</span>
-              <a href="#" className={styles.ctaPrimary}>
-                Ver catálogo
-              </a>
-            </div>
-            <div className="soon-wrap">
-              <span className="soon-label">Próximamente</span>
-              <a href="#" className={styles.ctaSecondary}>
-                Contactar Asesor
-              </a>
-            </div>
+            <Link href="/catalogo" className={styles.ctaPrimary}>
+              Ver catálogo
+            </Link>
+            <a
+              href={WHATSAPP_URL}
+              className={styles.ctaSecondary}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Contactar Asesor
+            </a>
           </div>
 
           <div className={styles.trustBadges}>

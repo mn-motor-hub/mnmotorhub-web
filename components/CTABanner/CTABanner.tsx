@@ -1,6 +1,8 @@
 import { MessageCircle, ArrowRight } from 'lucide-react'
 import styles from './CTABanner.module.css'
 
+const WHATSAPP_URL = 'https://wa.me/584221649320?text=Hola%2C%20no%20encuentro%20una%20pieza%20y%20quiero%20consultar'
+
 export default function CTABanner() {
   return (
     <section className={styles.section}>
@@ -16,19 +18,18 @@ export default function CTABanner() {
           </p>
         </div>
         <div className={styles.actions}>
-          <div className="soon-wrap">
-            <span className="soon-label">Próximamente</span>
-            <a href="#" className={styles.ctaWhatsapp}>
-              <MessageCircle size={20} />
-              Consultar por WhatsApp
-            </a>
-          </div>
-          <div className="soon-wrap">
-            <span className="soon-label">Próximamente</span>
-            <a href="#" className={styles.ctaSecondary}>
-              Ver categorías <ArrowRight size={16} />
-            </a>
-          </div>
+          <a
+            href={WHATSAPP_URL}
+            className={styles.ctaWhatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MessageCircle size={20} />
+            Consultar por WhatsApp
+          </a>
+          <a href="#categorias" className={styles.ctaSecondary}>
+            Ver categorías <ArrowRight size={16} />
+          </a>
         </div>
       </div>
     </section>

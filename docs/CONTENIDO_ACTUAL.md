@@ -29,9 +29,10 @@ Layout (app/layout.tsx)
 | Elemento | Contenido | Estado |
 |---|---|---|
 | Logo | `/images/logo-motor-hub.png` | ✅ activo |
-| Link 1 | Productos → `#categorias` (smooth scroll) | ✅ activo |
-| Link 2 | ¿Por qué nosotros? → `#por-que-nosotros` | ✅ activo |
-| Link 3 | Contacto → `https://wa.me/584100000000` (new tab) | ⚠️ número placeholder |
+| Link 1 | Catálogo → `/catalogo` | ✅ activo |
+| Link 2 | Productos → `#categorias` (smooth scroll) | ✅ activo |
+| Link 3 | ¿Por qué nosotros? → `#por-que-nosotros` | ✅ activo |
+| Link 4 | Contacto → `https://wa.me/584221649320` (new tab) | ✅ activo |
 | Cuenta / Carrito | Removidos | — |
 | Menú mobile | Hamburguer visible, sin drawer implementado | 🔜 pendiente |
 
@@ -43,8 +44,8 @@ Layout (app/layout.tsx)
 |---|---|
 | Headline | `TU CLUTCH NO ESPERA.` |
 | Descripción | Kits completos y repuestos de mantenimiento con envío a todo Venezuela. Stock real, respuesta inmediata. |
-| CTA primario | Ver catálogo → `#` | ⚠️ Próximamente
-| CTA secundario | Contactar Asesor → `#` | ⚠️ Próximamente
+| CTA primario | Ver catálogo → `/catalogo` | ✅ activo
+| CTA secundario | Contactar Asesor → `https://wa.me/584221649320` | ✅ activo
 | Badge 1 | Marcas OEM Certificadas |
 | Badge 2 | Envío a Todo Venezuela |
 | Badge 3 | Te Asesoramos Gratis |
@@ -101,8 +102,8 @@ Layout (app/layout.tsx)
 | Label | `ATENCIÓN PERSONALIZADA` |
 | Título | `¿NO ENCONTRÁS LA PIEZA?` |
 | Descripción | Escribinos por WhatsApp con el modelo de tu vehículo y te consiguemos lo que necesitás. |
-| CTA primario | Consultar por WhatsApp → `#` ⚠️ Próximamente (número placeholder) |
-| CTA secundario | Ver categorías → `#` ⚠️ Próximamente |
+| CTA primario | Consultar por WhatsApp → `https://wa.me/584221649320` | ✅ activo |
+| CTA secundario | Ver categorías → `#categorias` | ✅ activo |
 
 ---
 
@@ -150,8 +151,6 @@ Layout (app/layout.tsx)
 
 | Ítem | Bloqueado por | Prioridad |
 |---|---|---|
-| Número real de WhatsApp | Definir número de atención | 🔴 Alta |
-| Catálogo de productos | Inventario / backend | 🔴 Alta |
 | Mobile menu drawer | Implementar toggle (`use client`) | 🟡 Media |
 | Bento cards → enlace real | Páginas de categoría | 🟡 Media |
 | Formulario de contacto | Backend / integración | 🟢 Baja |

@@ -160,7 +160,7 @@ Línea de 2px, degradado naranja a transparente, 64px de ancho. Aparece sobre ca
 |---|---|---|
 | Instagram | @mnmotorhub · https://www.instagram.com/mnmotorhub/ | ✅ Activo |
 | Facebook | MN Motor Hub · https://www.facebook.com/profile.php?id=61590356652354 | ✅ Activo |
-| WhatsApp | 584100000000 (placeholder — actualizar) | ⚠️ Número pendiente |
+| WhatsApp | +58 422-1649320 | ✅ Activo |
 | Web | https://mnmotorhub.com | 🔜 Por desplegar |
 
 ---
@@ -247,7 +247,6 @@ Cualquier duda, acá estamos.
 
 | Ítem | Descripción | Prioridad |
 |---|---|---|
-| Número de WhatsApp real | Reemplazar `584100000000` en todo el sitio y plantillas | 🔴 Alta |
 | Fotografía de producto | Fotos reales del inventario para redes y catálogo | 🔴 Alta |
 | Historia de marca corta | Párrafo de "quiénes somos" para bio de redes | 🟡 Media |
 | Video corto de presentación | Reel de 30–60s para Instagram/Facebook | 🟡 Media |

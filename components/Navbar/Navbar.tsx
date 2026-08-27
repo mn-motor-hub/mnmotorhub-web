@@ -11,9 +11,10 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
+  { label: 'Catálogo', href: '/catalogo' },
   { label: 'Productos', href: '#categorias' },
   { label: '¿Por qué nosotros?', href: '#por-que-nosotros' },
-  { label: 'Contacto', href: 'https://wa.me/584100000000', target: '_blank', rel: 'noopener noreferrer' },
+  { label: 'Contacto', href: 'https://wa.me/584221649320', target: '_blank', rel: 'noopener noreferrer' },
 ]
 
 export default function Navbar() {
@@ -34,18 +35,21 @@ export default function Navbar() {
         </Link>
 
         <ul className={styles.links}>
-          {navLinks.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                className={styles.link}
-                target={link.target}
-                rel={link.rel}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {navLinks.map((link) =>
+            link.target ? (
+              <li key={link.label}>
+                <a href={link.href} className={styles.link} target={link.target} rel={link.rel}>
+                  {link.label}
+                </a>
+              </li>
+            ) : (
+              <li key={link.label}>
+                <Link href={link.href} className={styles.link}>
+                  {link.label}
+                </Link>
+              </li>
+            )
+          )}
         </ul>
 
         <div className={styles.actions}>
