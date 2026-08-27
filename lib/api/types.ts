@@ -1,10 +1,11 @@
 export interface CatalogItem {
   codigoInterno: string
   nombre: string
+  descripcion: string | null
   marca: string | null
-  categoria: string
-  subcategoria: string
-  precioVenta: number
+  categoria: string | null
+  subcategoria: string | null
+  precioVenta: number | null
   disponible: boolean
 }
 

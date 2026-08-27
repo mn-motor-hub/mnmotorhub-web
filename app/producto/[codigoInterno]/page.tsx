@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { PackageSearch } from 'lucide-react'
 import { getCatalogItem } from '@/lib/api/catalog'
+import { formatPrice } from '@/lib/format'
 import AvailabilityBadge from '@/components/AvailabilityBadge/AvailabilityBadge'
 import styles from './page.module.css'
 
@@ -28,18 +28,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
     notFound()
   }
 
+  const breadcrumb = [item.categoria, item.subcategoria].filter(Boolean).join(' / ')
+
   return (
     <div className={styles.wrapper}>
-      <div className={styles.imagePlaceholder}>
-        <PackageSearch size={64} strokeWidth={1.5} />
-      </div>
       <div className={styles.info}>
-        <span className={styles.breadcrumb}>
-          {item.categoria} / {item.subcategoria}
-        </span>
+        {breadcrumb && <span className={styles.breadcrumb}>{breadcrumb}</span>}
         <h1 className={styles.name}>{item.nombre}</h1>
         {item.marca && <p className={styles.brand}>Marca: {item.marca}</p>}
-        <p className={styles.price}>${item.precioVenta.toFixed(2)}</p>
+        {item.descripcion && <p className={styles.description}>{item.descripcion}</p>}
+        <p className={styles.price}>{formatPrice(item.precioVenta)}</p>
         <AvailabilityBadge disponible={item.disponible} />
       </div>
     </div>

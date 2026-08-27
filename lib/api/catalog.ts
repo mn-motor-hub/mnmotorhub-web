@@ -62,5 +62,6 @@ export async function getCatalogItem(codigoInterno: string): Promise<CatalogItem
     throw new Error(`Error al obtener el producto: ${res.status}`)
   }
 
-  return res.json() as Promise<CatalogItem>
+  const json = (await res.json()) as { data: CatalogItem }
+  return json.data
 }
