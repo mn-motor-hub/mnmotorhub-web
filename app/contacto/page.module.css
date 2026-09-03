@@ -2,8 +2,8 @@
 .cardGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-gutter);
-  margin-bottom: 48px;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
 }
 
 @media (min-width: 768px) {
@@ -16,10 +16,10 @@
   background-color: var(--color-surface-container);
   border: 1px solid var(--color-outline-variant);
   border-radius: var(--radius-lg);
-  padding: 32px;
+  padding: var(--space-xl);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-md);
 }
 
 .iconWrapper {
@@ -30,13 +30,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary);
+  color: var(--color-primary-dim);
   flex-shrink: 0;
 }
 
 .cardTitle {
   font-family: var(--font-oswald);
-  font-size: 20px;
+  font-size: var(--text-xl);
   font-weight: 600;
   text-transform: uppercase;
   color: var(--color-on-surface);
@@ -44,7 +44,7 @@
 
 .cardText {
   font-family: var(--font-inter);
-  font-size: 16px;
+  font-size: var(--text-base);
   line-height: 1.7;
   color: var(--color-on-surface-variant);
   flex: 1;
@@ -53,42 +53,43 @@
 .cardLink {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-sm);
   font-family: var(--font-inter);
-  font-size: 13px;
+  font-size: var(--text-sm);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--color-primary-dim);
   transition: gap 200ms ease;
   align-self: flex-start;
 }
 
 .cardLink:hover {
-  gap: 12px;
+  gap: var(--space-md);
 }
 
 /* ─── Schedule ───────────────────────────────────────────────── */
 .scheduleBlock {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 16px;
-  margin-bottom: 24px;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
 .scheduleRow {
   display: flex;
-  gap: 16px;
+  flex-direction: column;
+  gap: var(--space-2xs);
   font-family: var(--font-inter);
-  font-size: 16px;
+  font-size: var(--text-base);
   line-height: 1.6;
 }
 
-@media (max-width: 479px) {
+@media (min-width: 480px) {
   .scheduleRow {
-    flex-direction: column;
-    gap: 2px;
+    flex-direction: row;
+    gap: var(--space-md);
   }
 }
 
@@ -104,7 +105,7 @@
 
 /* ─── Note ───────────────────────────────────────────────────── */
 .note {
-  padding: 16px 20px;
+  padding: var(--space-md) var(--space-lg);
   background-color: var(--color-surface-container);
   border-left: 2px solid var(--color-outline);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;

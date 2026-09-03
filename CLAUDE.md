@@ -47,50 +47,97 @@ La web es el primer canal de ventas y presencia de marca.
 
 ## Design System
 
-El diseño fue generado por Stitch. La fuente de verdad visual es `/design/DESIGN.md`.
+**Los tokens NO viven en este repo.** Están en [`@mn/design-system`](https://github.com/mn-motor-hub/mn-motor-hub-design-system),
+compartido con el ERP interno (`mn-motor-hub-erp-frontend`) y con la generación de contenido de marca.
 
-**Regla crítica:** No inventar colores, radios ni tipografías. Todo valor visual viene de las CSS variables definidas en `styles/globals.css`, mapeadas 1:1 desde `DESIGN.md`.
+Fuente de verdad: `tokens/tokens.json` de ese repo. `styles/globals.css` solo importa:
 
-### Paleta principal
-```
---color-background:           #131313
---color-surface:              #131313
---color-surface-low:          #1c1b1b
---color-surface-container:    #201f1f
---color-surface-high:         #2a2a2a
---color-surface-lowest:       #0e0e0e
---color-surface-variant:      #353534
-
---color-primary:              #ffb59e   /* texto/iconos sobre fondo oscuro */
---color-primary-container:    #ff571a   /* botones CTA, precios, acentos */
---color-on-primary-container: #521300   /* texto sobre botón naranja */
-
---color-on-surface:           #e5e2e1
---color-on-surface-variant:   #e6beb2
---color-outline:              #ad897e
---color-outline-variant:      #5c4037
+```css
+@import '@mn/design-system/tokens.css';
+@import '@mn/design-system/recipes.css';
 ```
 
-### Tipografía
-```
---font-oswald: 'Oswald', sans-serif   /* headings, uppercase, display */
---font-inter:  'Inter', sans-serif    /* body, labels, descripciones */
-```
-Cargar ambas vía `next/font/google` en `app/layout.tsx` y exponerlas como CSS variables.
+### Regla crítica
 
-### Bordes y espaciado
-```
---radius-sm:   2px
---radius-md:   4px    /* botones, inputs, chips */
---radius-lg:   8px    /* cards */
+**Si falta un valor, se agrega en el paquete — nunca en este repo.** Redefinir un token acá
+hace que la web y el ERP diverjan en silencio, que es exactamente lo que este paquete existe
+para evitar.
 
---spacing-base:     8px
---spacing-gutter:   24px
---spacing-section:  80px
---container-max:    1280px
+Divergencia legítima entre productos: sobrescribir el token después del import, **con un
+comentario que diga por qué**. Sin comentario, es una divergencia accidental.
+
+### Instalación
+
+```bash
+npm install https://github.com/mn-motor-hub/mn-motor-hub-design-system/archive/refs/tags/vX.Y.Z.tar.gz
 ```
 
----
+Por **tarball del tag**, nunca `github:` ni `git+ssh`. npm normaliza los URLs de GitHub a SSH
+y Vercel no tiene llave SSH: el deploy falla con `Permission denied (publickey)`.
+
+### Nombres de tokens
+
+⚠️ La nomenclatura cambió en la migración al paquete. Si ves código o documentación vieja:
+
+| Antes | Ahora | Valor |
+|---|---|---|
+| `--color-primary` | `--color-primary-dim` | `#ffb59e` durazno |
+| `--color-primary-container` | `--color-primary` | `#ff571a` naranja |
+| `--color-on-primary-container` | `--color-on-primary` | `#521300` |
+| `--color-surface` | `--color-background` | `#131313` |
+| `--spacing-base` / `--spacing-gutter` | `--space-sm` / `--space-lg` | `8px` / `24px` |
+| `--spacing-edge` / `--spacing-section` | `--layout-edge` / `--layout-section` | — |
+| `--container-max` | `--layout-container-max` | `1280px` |
+
+**`--color-primary` significa lo opuesto que antes.** Un reemplazo textual ingenuo produce
+botones color durazno.
+
+### Grupos disponibles
+
+`--color-*` · `--overlay-*` · `--color-*-rgb` (tripletes para alpha) · `--font-*` · `--text-*` ·
+`--weight-*` · `--tracking-*` · `--leading-*` · `--space-*` · `--layout-*` · `--radius-*` ·
+`--shadow-*` · `--touch-min` · `--breakpoint-*`
+
+La lista completa con descripciones está en `docs/BRAND.md` y `dist/tokens.json` del paquete.
+
+### Recetas tipográficas
+
+La firma visual de la marca es **Oswald + mayúsculas + `letter-spacing: 0.05em`**. No repetirla
+a mano: usar las clases de `recipes.css`.
+
+```tsx
+<h2 className="mn-heading">Repuestos de motor</h2>
+<span className="mn-price">$ 45,00</span>
+```
+
+Disponibles: `.mn-heading` · `.mn-subheading` · `.mn-label` · `.mn-button` · `.mn-body` ·
+`.mn-price` · `.mn-data`
+
+### Títulos fluidos
+
+Los títulos que cambian de tamaño entre móvil y escritorio usan `clamp()`, no media queries:
+
+- `--text-title-page` — H1 de página con hero band. 32px → 48px.
+- `--text-title-section` — H2 de sección. 28px → 40px.
+
+28px no es arbitrario: es el máximo que entra en una línea a 375px. A 32px, tres de los cuatro
+títulos de la home se parten en dos renglones.
+
+### Lo que está prohibido en CSS
+
+| Prohibido | Usar |
+|---|---|
+| `#ff571a` y cualquier hex | `var(--color-primary)` |
+| `rgba(255, 87, 26, 0.2)` | `rgba(var(--color-primary-rgb), 0.2)` |
+| `font-size: 14px` | `var(--text-sm)` |
+| `padding: 12px` | `var(--space-md)` |
+| `border-radius: 9999px` | `var(--radius-full)` |
+| `@media (max-width: ...)` | `@media (min-width: ...)` |
+| `style={{ ... }}` en TSX | un CSS Module |
+
+**Excepción a la escala de espaciado:** `44px` de área táctil no se redondea. Es
+`var(--touch-min)`, y **manda sobre la escala** — si el padding de la escala deja un target por
+debajo de 44px, agregar `min-height: var(--touch-min)`.
 
 ## Estructura de carpetas
 
@@ -265,7 +312,9 @@ NEXT_PUBLIC_SITE_URL=https://mnmotorhub.com
 ## Lo que NO hacer
 
 - No usar Tailwind (el HTML de Stitch lo usa, pero el proyecto real usa CSS Modules)
-- No hardcodear colores — siempre CSS variables
+- No hardcodear colores, tamaños de fuente, espaciados ni radios — siempre tokens del paquete
+- No redefinir tokens en este repo — se agregan en `@mn/design-system`
+- No instalar el paquete con `github:` — rompe el deploy en Vercel
 - No `<img>` directo — siempre `next/image` con `width`, `height` y `alt`
 - No lógica de negocio en componentes — separar en `/lib`
 - No commitear `.env.local` ni credenciales

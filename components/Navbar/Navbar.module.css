@@ -8,12 +8,14 @@
 }
 
 .nav {
+  max-width: var(--layout-container-max);
+  margin-inline: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 88px;
   width: 100%;
-  padding: 0 var(--spacing-edge);
+  padding: 0 var(--layout-edge);
 }
 
 @media (min-width: 768px) {
@@ -52,7 +54,7 @@
 .links {
   display: none;
   align-items: center;
-  gap: 32px;
+  gap: var(--space-xl);
   margin-left: auto;
 }
 
@@ -64,7 +66,7 @@
 
 .link {
   font-family: var(--font-inter);
-  font-size: 15px;
+  font-size: var(--text-base);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -74,18 +76,18 @@
 
 @media (min-width: 768px) {
   .link {
-    font-size: 16px;
+    font-size: var(--text-base);
   }
 }
 
 .link:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-dim);
 }
 
 .actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-md);
 }
 
 .iconBtn {
@@ -93,24 +95,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: var(--space-sm);
   color: var(--color-on-surface);
   border-radius: var(--radius-md);
   transition: color 200ms ease;
 }
 
 .iconBtn:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-dim);
 }
 
 .cartBadge {
   position: absolute;
   top: 4px;
   right: 4px;
-  background-color: var(--color-primary-container);
-  color: var(--color-on-primary-container);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
   font-family: var(--font-inter);
-  font-size: 11px;
+  font-size: var(--text-xs);
   font-weight: 700;
   line-height: 1;
   min-width: 18px;
@@ -118,21 +120,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 9999px;
-  padding: 0 4px;
+  border-radius: var(--radius-full);
+  padding: 0 var(--space-xs);
 }
 
 .mobileMenu {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  /* El area tactil manda sobre la escala de espaciado */
+  min-width: var(--touch-min);
+  min-height: var(--touch-min);
+  padding: var(--space-sm);
   color: var(--color-on-surface);
   transition: color 200ms ease;
 }
 
 .mobileMenu:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-dim);
 }
 
 @media (min-width: 768px) {

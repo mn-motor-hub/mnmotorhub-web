@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
-  padding: var(--spacing-gutter);
+  gap: var(--space-sm);
+  padding: var(--space-lg);
   min-height: 44px;
   background-color: var(--color-surface-container);
   border-radius: var(--radius-lg);
@@ -17,7 +17,7 @@
 
 .name {
   font-family: var(--font-oswald);
-  font-size: 20px;
+  font-size: var(--text-xl);
   font-weight: 600;
   text-transform: uppercase;
   color: var(--color-on-surface);
@@ -25,7 +25,7 @@
 
 .subtitle {
   font-family: var(--font-inter);
-  font-size: 13px;
+  font-size: var(--text-sm);
   line-height: 1.5;
   color: var(--color-on-surface-variant);
   text-transform: capitalize;
@@ -34,13 +34,13 @@
 .link {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-xs);
   margin-top: auto;
-  padding-top: 8px;
+  padding-top: var(--space-sm);
   font-family: var(--font-inter);
-  font-size: 13px;
+  font-size: var(--text-sm);
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--color-primary-container);
+  color: var(--color-primary);
 }

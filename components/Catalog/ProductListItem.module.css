@@ -1,8 +1,8 @@
 .row {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: var(--spacing-base) 0;
+  gap: var(--space-sm);
+  padding: var(--space-sm) 0;
   border-bottom: 1px solid var(--color-outline-variant);
 }
 
@@ -11,7 +11,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: var(--spacing-gutter);
+    gap: var(--space-lg);
   }
 }
 
@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
+  gap: var(--space-xs);
   min-width: 0;
 }
 
@@ -27,35 +27,35 @@
   background-color: var(--color-surface-lowest);
   color: var(--color-on-surface-variant);
   font-family: var(--font-inter);
-  font-size: 10px;
+  font-size: var(--text-2xs);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 3px 8px;
+  padding: var(--space-2xs) var(--space-sm);
   border-radius: var(--radius-sm);
 }
 
 .name {
   font-family: var(--font-inter);
-  font-size: 15px;
+  font-size: var(--text-base);
   font-weight: 600;
   line-height: 1.4;
   color: var(--color-on-surface);
 }
 
 .row:hover .name {
-  color: var(--color-primary);
+  color: var(--color-primary-dim);
 }
 
 .brand {
   font-family: var(--font-inter);
-  font-size: 12px;
+  font-size: var(--text-xs);
   color: var(--color-on-surface-variant);
 }
 
 .description {
   font-family: var(--font-inter);
-  font-size: 13px;
+  font-size: var(--text-sm);
   line-height: 1.4;
   color: var(--color-on-surface-variant);
   display: -webkit-box;
@@ -67,7 +67,7 @@
 .side {
   display: flex;
   align-items: center;
-  gap: var(--spacing-gutter);
+  gap: var(--space-lg);
   flex-shrink: 0;
 }
 
@@ -75,14 +75,14 @@
   .side {
     flex-direction: column;
     align-items: flex-end;
-    gap: 6px;
+    gap: var(--space-xs);
   }
 }
 
 .price {
   font-family: var(--font-oswald);
-  font-size: 20px;
+  font-size: var(--text-xl);
   font-weight: 600;
-  color: var(--color-primary-container);
+  color: var(--color-primary);
   white-space: nowrap;
 }

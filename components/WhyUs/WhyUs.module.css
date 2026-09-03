@@ -3,43 +3,39 @@
 }
 
 .inner {
+  max-width: var(--layout-container-max);
+  margin-inline: auto;
   width: 100%;
-  padding: var(--spacing-section) var(--spacing-edge);
+  padding: var(--layout-section) var(--layout-edge);
 }
 
 .header {
   text-align: left;
-  margin-bottom: 64px;
+  margin-bottom: var(--space-3xl);
 }
 
 .title {
   font-family: var(--font-oswald);
-  font-size: 40px;
+  font-size: var(--text-title-section);
   font-weight: 600;
   line-height: 1.2;
   text-transform: uppercase;
   color: var(--color-on-surface);
 }
 
-@media (max-width: 767px) {
-  .title {
-    font-size: 28px;
-  }
-}
-
 .subtitle {
   font-family: var(--font-inter);
-  font-size: 16px;
+  font-size: var(--text-base);
   line-height: 1.6;
   color: var(--color-on-surface-variant);
-  margin-top: var(--spacing-base);
+  margin-top: var(--space-sm);
 }
 
 /* ─── Grid ───────────────────────── */
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-gutter);
+  gap: var(--space-lg);
 }
 
 @media (min-width: 768px) {
@@ -57,17 +53,17 @@
 /* ─── Pillar ─────────────────────── */
 .pillar {
   background-color: var(--color-surface-container);
-  padding: 32px var(--spacing-gutter);
+  padding: var(--space-xl) var(--space-lg);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-outline-variant);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-md);
   transition: border-color 200ms ease, transform 200ms ease;
 }
 
 .pillar:hover {
-  border-color: var(--color-primary);
+  border-color: var(--color-primary-dim);
   transform: translateY(-4px);
 }
 
@@ -82,12 +78,12 @@
 }
 
 .icon {
-  color: var(--color-primary);
+  color: var(--color-primary-dim);
 }
 
 .pillarTitle {
   font-family: var(--font-oswald);
-  font-size: 24px;
+  font-size: var(--text-2xl);
   font-weight: 500;
   line-height: 1.3;
   text-transform: uppercase;
@@ -96,7 +92,7 @@
 
 .pillarDesc {
   font-family: var(--font-inter);
-  font-size: 16px;
+  font-size: var(--text-base);
   line-height: 1.6;
   color: var(--color-on-surface-variant);
 }

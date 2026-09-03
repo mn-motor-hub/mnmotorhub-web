@@ -1,43 +1,10 @@
-/* ─── CSS Variables ─────────────────────────────────────────── */
-:root {
-  /* Surfaces */
-  --color-background:           #131313;
-  --color-surface:              #131313;
-  --color-surface-low:          #1c1b1b;
-  --color-surface-container:    #201f1f;
-  --color-surface-high:         #2a2a2a;
-  --color-surface-lowest:       #0e0e0e;
-  --color-surface-variant:      #353534;
+/* ─── MN Motor Hub — Design System ──────────────────────────── */
+/* Los tokens viven en @mn/design-system, compartido con el ERP.   */
+/* Fuente de verdad: tokens/tokens.json de ese repo.               */
+/* NO redefinir tokens aca: si falta un valor, se agrega alla.     */
 
-  /* Primary */
-  --color-primary:              #ffb59e;
-  --color-primary-container:    #ff571a;
-  --color-on-primary-container: #521300;
-
-  /* On-surface */
-  --color-on-surface:           #e5e2e1;
-  --color-on-surface-variant:   #e6beb2;
-
-  /* Outline */
-  --color-outline:              #ad897e;
-  --color-outline-variant:      #5c4037;
-
-  /* Typography */
-  --font-oswald: 'Oswald', sans-serif;
-  --font-inter:  'Inter', sans-serif;
-
-  /* Border radii */
-  --radius-sm:   2px;
-  --radius-md:   4px;
-  --radius-lg:   8px;
-
-  /* Spacing */
-  --spacing-base:     8px;
-  --spacing-gutter:   24px;
-  --spacing-edge:     clamp(24px, 5vw, 72px);
-  --spacing-section:  80px;
-  --container-max:    100%;
-}
+@import '@mn/design-system/tokens.css';
+@import '@mn/design-system/recipes.css';
 
 /* ─── Reset ─────────────────────────────────────────────────── */
 *, *::before, *::after {
@@ -55,7 +22,7 @@ body {
   background-color: var(--color-background);
   color: var(--color-on-surface);
   font-family: var(--font-inter);
-  font-size: 16px;
+  font-size: var(--text-base);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -83,41 +50,41 @@ ul, ol {
 }
 
 ::selection {
-  background-color: var(--color-primary-container);
-  color: var(--color-on-primary-container);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
 }
 
 /* ─── Section accent line ───────────────────────────────────── */
 .section-accent {
   height: 2px;
   width: 64px;
-  background: linear-gradient(90deg, var(--color-primary-container) 0%, transparent 100%);
-  margin-bottom: var(--spacing-gutter);
+  background: linear-gradient(90deg, var(--color-primary) 0%, transparent 100%);
+  margin-bottom: var(--space-lg);
 }
 
 .section-accent--hero {
   width: 96px;
-  margin-bottom: var(--spacing-base);
+  margin-bottom: var(--space-sm);
 }
 
 /* ─── Coming soon wrapper ───────────────────────────────────── */
 .soon-wrap {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--space-xs);
   align-items: flex-start;
 }
 
 .soon-label {
   font-family: var(--font-inter);
-  font-size: 9px;
+  font-size: var(--text-2xs);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-primary);
-  background: rgba(255, 181, 158, 0.08);
-  border: 1px solid rgba(255, 181, 158, 0.25);
+  color: var(--color-primary-dim);
+  background: rgba(var(--color-primary-dim-rgb), 0.08);
+  border: 1px solid var(--overlay-accent-border);
   border-radius: var(--radius-sm);
-  padding: 2px 6px;
+  padding: var(--space-2xs) var(--space-xs);
   white-space: nowrap;
 }

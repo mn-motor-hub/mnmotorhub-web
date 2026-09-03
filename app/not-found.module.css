@@ -1,0 +1,37 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding: var(--layout-edge);
+  text-align: center;
+  font-family: var(--font-inter);
+  color: var(--color-on-surface);
+  background-color: var(--color-background);
+}
+
+.code {
+  font-family: var(--font-oswald);
+  font-size: var(--text-6xl);
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  line-height: var(--leading-tight);
+  color: var(--color-primary-dim);
+}
+
+.message {
+  font-size: var(--text-base);
+  color: var(--color-on-surface-variant);
+}
+
+.link {
+  min-height: var(--touch-min);
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

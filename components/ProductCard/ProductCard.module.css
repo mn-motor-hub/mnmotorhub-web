@@ -16,25 +16,25 @@
   background-color: var(--color-surface-lowest);
   color: var(--color-on-surface-variant);
   font-family: var(--font-inter);
-  font-size: 10px;
+  font-size: var(--text-2xs);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 3px 8px;
+  padding: var(--space-2xs) var(--space-sm);
   border-radius: var(--radius-sm);
 }
 
 .body {
-  padding: var(--spacing-gutter);
+  padding: var(--space-lg);
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--space-xs);
   flex: 1;
 }
 
 .name {
   font-family: var(--font-inter);
-  font-size: 14px;
+  font-size: var(--text-sm);
   font-weight: 500;
   line-height: 1.4;
   color: var(--color-on-surface);
@@ -45,18 +45,18 @@
 }
 
 .name:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-dim);
 }
 
 .brand {
   font-family: var(--font-inter);
-  font-size: 12px;
+  font-size: var(--text-xs);
   color: var(--color-on-surface-variant);
 }
 
 .description {
   font-family: var(--font-inter);
-  font-size: 13px;
+  font-size: var(--text-sm);
   line-height: 1.4;
   color: var(--color-on-surface-variant);
   display: -webkit-box;
@@ -69,14 +69,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: var(--space-sm);
   margin-top: auto;
-  padding-top: 12px;
+  padding-top: var(--space-md);
 }
 
 .price {
   font-family: var(--font-oswald);
-  font-size: 24px;
+  font-size: var(--text-2xl);
   font-weight: 600;
-  color: var(--color-primary-container);
+  color: var(--color-primary);
 }

@@ -1,7 +1,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-gutter);
+  gap: var(--space-lg);
 }
 
 @media (min-width: 768px) {
@@ -22,8 +22,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 12px;
-  padding: 64px var(--spacing-gutter);
+  gap: var(--space-md);
+  padding: var(--space-3xl) var(--space-lg);
   background-color: var(--color-surface-container);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-outline-variant);
@@ -31,12 +31,12 @@
 
 .emptyIcon {
   color: var(--color-outline);
-  margin-bottom: 4px;
+  margin-bottom: var(--space-xs);
 }
 
 .emptyTitle {
   font-family: var(--font-oswald);
-  font-size: 20px;
+  font-size: var(--text-xl);
   font-weight: 600;
   text-transform: uppercase;
   color: var(--color-on-surface);
@@ -44,7 +44,7 @@
 
 .emptyText {
   font-family: var(--font-inter);
-  font-size: 14px;
+  font-size: var(--text-sm);
   line-height: 1.6;
   color: var(--color-on-surface-variant);
   max-width: 32ch;

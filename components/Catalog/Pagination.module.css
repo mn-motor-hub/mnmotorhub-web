@@ -2,19 +2,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-gutter);
-  margin-top: 48px;
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
   flex-wrap: wrap;
 }
 
 .control {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-xs);
   min-height: 44px;
-  padding: 10px 16px;
+  padding: var(--space-sm) var(--space-md);
   font-family: var(--font-inter);
-  font-size: 14px;
+  font-size: var(--text-sm);
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -25,8 +25,8 @@
 }
 
 .control:hover {
-  background-color: var(--color-primary-container);
-  color: var(--color-on-primary-container);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
 }
 
 .disabled {
@@ -36,7 +36,7 @@
 
 .status {
   font-family: var(--font-inter);
-  font-size: 14px;
+  font-size: var(--text-sm);
   color: var(--color-on-surface-variant);
   white-space: nowrap;
 }

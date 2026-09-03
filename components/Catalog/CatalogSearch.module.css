@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: var(--spacing-gutter);
+  margin-bottom: var(--space-lg);
 }
 
 .icon {
@@ -15,7 +15,7 @@
 .input {
   width: 100%;
   min-height: 44px;
-  padding: 10px 16px 10px 44px;
+  padding: var(--space-sm) var(--space-md) var(--space-sm) var(--touch-min);
   font-family: var(--font-inter);
   font-size: max(1rem, 16px);
   color: var(--color-on-surface);
@@ -30,5 +30,5 @@
 
 .input:focus {
   outline: none;
-  border-color: var(--color-primary);
+  border-color: var(--color-primary-dim);
 }
