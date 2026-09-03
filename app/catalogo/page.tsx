@@ -3,7 +3,7 @@ import { getCatalog } from '@/lib/api/catalog'
 import PageLayout from '@/components/PageLayout/PageLayout'
 import CatalogSearch from '@/components/Catalog/CatalogSearch'
 import CatalogList from '@/components/Catalog/CatalogList'
-import Pagination from '@/components/Catalog/Pagination'
+import { Pagination } from '@mn/design-system/ui'
 
 export const metadata: Metadata = {
   title: 'Catálogo — MN Motor Hub',
@@ -29,10 +29,10 @@ export default async function CatalogPage({ searchParams }: CatalogPageProps) {
       <CatalogSearch />
       <CatalogList items={data} hasQuery={Boolean(q)} />
       <Pagination
-        page={meta.page}
+        currentPage={meta.page}
         totalPages={meta.totalPages}
         basePath="/catalogo"
-        params={q ? { q } : undefined}
+        searchParams={q ? { q } : undefined}
       />
     </PageLayout>
   )

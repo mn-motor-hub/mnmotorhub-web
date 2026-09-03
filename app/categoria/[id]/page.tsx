@@ -4,7 +4,7 @@ import { getCatalog, getCategoriaById } from '@/lib/api/catalog'
 import PageLayout from '@/components/PageLayout/PageLayout'
 import CatalogSearch from '@/components/Catalog/CatalogSearch'
 import CatalogList from '@/components/Catalog/CatalogList'
-import Pagination from '@/components/Catalog/Pagination'
+import { Pagination } from '@mn/design-system/ui'
 
 const PAGE_SIZE = 12
 
@@ -49,10 +49,10 @@ export default async function CategoriaPage({ params, searchParams }: CategoriaP
         emptyText={q ? undefined : 'Todavía no hay artículos cargados en esta categoría.'}
       />
       <Pagination
-        page={meta.page}
+        currentPage={meta.page}
         totalPages={meta.totalPages}
         basePath={`/categoria/${id}`}
-        params={q ? { q } : undefined}
+        searchParams={q ? { q } : undefined}
       />
     </PageLayout>
   )
