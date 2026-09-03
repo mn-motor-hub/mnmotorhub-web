@@ -1,0 +1,50 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  /* El CTA es el objetivo táctil más importante de la página */
+  min-height: var(--touch-min);
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border-radius: var(--radius-md);
+  font-family: var(--font-inter);
+  /* A 375px, en mayusculas y con tracking, --text-base parte en dos lineas */
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  transition: background-color 200ms ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  background-color: var(--color-primary-hover);
+}
+
+.hint {
+  font-family: var(--font-inter);
+  font-size: var(--text-sm);
+  color: var(--color-on-surface-variant);
+}
+
+/* En escritorio no necesita ocupar todo el ancho */
+@media (min-width: 768px) {
+  .wrapper {
+    align-items: flex-start;
+  }
+
+  .cta {
+    font-size: var(--text-base);
+    padding: var(--space-md) var(--space-xl);
+  }
+}

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { getCatalogItem } from '@/lib/api/catalog'
 import { formatPrice } from '@/lib/format'
 import AvailabilityBadge from '@/components/AvailabilityBadge/AvailabilityBadge'
+import ProductCTA from '@/components/Product/ProductCTA'
 import styles from './page.module.css'
 
 interface ProductPageProps {
@@ -39,6 +40,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
         {item.descripcion && <p className={styles.description}>{item.descripcion}</p>}
         <p className={styles.price}>{formatPrice(item.precioVenta)}</p>
         <AvailabilityBadge disponible={item.disponible} />
+        {/* El código es lo que el cliente cita al consultar */}
+        <p className={styles.code}>Código: {item.codigoInterno}</p>
+        <ProductCTA
+          nombre={item.nombre}
+          codigoInterno={item.codigoInterno}
+          disponible={item.disponible}
+        />
       </div>
     </div>
   )

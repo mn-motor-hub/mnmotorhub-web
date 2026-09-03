@@ -1,0 +1,133 @@
+/* Botón hamburguesa — solo existe por debajo de 768px */
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* El área táctil manda sobre la escala de espaciado */
+  min-width: var(--touch-min);
+  min-height: var(--touch-min);
+  padding: var(--space-sm);
+  color: var(--color-on-surface);
+  border-radius: var(--radius-md);
+  transition: color 200ms ease;
+}
+
+.trigger:hover {
+  color: var(--color-primary-dim);
+}
+
+@media (min-width: 768px) {
+  .trigger {
+    display: none;
+  }
+}
+
+/* Panel */
+.root {
+  position: fixed;
+  inset: 0;
+  /* Por encima del header sticky, que está en 50 */
+  z-index: 100;
+}
+
+@media (min-width: 768px) {
+  .root {
+    display: none;
+  }
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: var(--overlay-strong);
+}
+
+.panel {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: min(320px, 85vw);
+  height: 100%;
+  background-color: var(--color-surface-container);
+  border-left: 1px solid var(--color-outline-variant);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md) var(--space-lg) var(--space-2xl);
+  overflow-y: auto;
+  /* Respeta el notch y la barra de gestos en iOS */
+  padding-top: max(var(--space-md), env(safe-area-inset-top));
+  padding-bottom: max(var(--space-2xl), env(safe-area-inset-bottom));
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: flex-end;
+  /* Alinea el botón de cerrar con la altura del header */
+  min-height: var(--touch-min);
+  margin-bottom: var(--space-lg);
+}
+
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--touch-min);
+  min-height: var(--touch-min);
+  color: var(--color-on-surface);
+  border-radius: var(--radius-md);
+  transition: color 200ms ease;
+}
+
+.close:hover {
+  color: var(--color-primary-dim);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  /* 8px de separación mínima entre elementos táctiles adyacentes */
+  gap: var(--space-sm);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  min-height: var(--touch-min);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-family: var(--font-inter);
+  font-size: var(--text-base);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-on-surface);
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  background-color: var(--overlay-surface);
+  color: var(--color-primary-dim);
+}
+
+/* Sin animación para quien la haya desactivado en el sistema */
+@media (prefers-reduced-motion: no-preference) {
+  .panel {
+    animation: slideIn 200ms ease-out;
+  }
+
+  .backdrop {
+    animation: fadeIn 200ms ease-out;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}

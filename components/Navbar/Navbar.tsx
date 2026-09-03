@@ -1,21 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Menu } from 'lucide-react'
+import MobileMenu from './MobileMenu'
+import { navLinks } from './navLinks'
 import styles from './Navbar.module.css'
-
-interface NavLink {
-  label: string
-  href: string
-  target?: string
-  rel?: string
-}
-
-const navLinks: NavLink[] = [
-  { label: 'Catálogo', href: '/catalogo' },
-  { label: 'Categorías', href: '/categorias' },
-  { label: '¿Por qué nosotros?', href: '#por-que-nosotros' },
-  { label: 'Contacto', href: 'https://wa.me/584221649320', target: '_blank', rel: 'noopener noreferrer' },
-]
 
 export default function Navbar() {
   return (
@@ -54,9 +41,7 @@ export default function Navbar() {
 
         <div className={styles.actions}>
           {/* Account and cart — activate when auth and e-commerce are ready */}
-          <button className={styles.mobileMenu} aria-label="Abrir menú">
-            <Menu size={24} />
-          </button>
+          <MobileMenu links={navLinks} />
         </div>
       </nav>
     </header>

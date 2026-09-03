@@ -20,7 +20,9 @@
 - **Tipografía**: nunca menos de `14px` en mobile.
 - **Imágenes**: siempre `max-width: 100%`, sin anchos fijos en mobile.
 - **No hover-only**: toda interacción hover debe tener equivalente táctil.
-- **Navbar**: en mobile colapsa a menú hamburguesa (ya implementado con `'use client'`).
+- **Navbar**: en mobile colapsa a menú hamburguesa — `components/Navbar/MobileMenu.tsx`,
+  el único Client Component del Navbar. Panel con foco atrapado, cierre con Esc, backdrop
+  y bloqueo de scroll de fondo.
 
 ### Orden de revisión antes de hacer PR
 1. Redimensionar a 375px — ¿se ve y funciona?
@@ -318,4 +320,5 @@ NEXT_PUBLIC_SITE_URL=https://mnmotorhub.com
 - No `<img>` directo — siempre `next/image` con `width`, `height` y `alt`
 - No lógica de negocio en componentes — separar en `/lib`
 - No commitear `.env.local` ni credenciales
+- No hardcodear el número de WhatsApp — sale de `lib/contact.ts`
 - No crear componentes Client sin justificación explícita en comentario

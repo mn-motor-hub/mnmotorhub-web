@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { BadgeCheck, Truck, Headphones } from 'lucide-react'
+import { GENERAL_INQUIRY_URL } from '@/lib/contact'
 import styles from './Hero.module.css'
 
-const WHATSAPP_URL = 'https://wa.me/584221649320?text=Hola%2C%20quiero%20consultar%20sobre%20un%20repuesto'
 
 export default function Hero() {
   return (
@@ -44,7 +44,7 @@ export default function Hero() {
               Ver catálogo
             </Link>
             <a
-              href={WHATSAPP_URL}
+              href={GENERAL_INQUIRY_URL}
               className={styles.ctaSecondary}
               target="_blank"
               rel="noopener noreferrer"

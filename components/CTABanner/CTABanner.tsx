@@ -1,7 +1,7 @@
 import { MessageCircle, ArrowRight } from 'lucide-react'
+import { MISSING_PART_URL } from '@/lib/contact'
 import styles from './CTABanner.module.css'
 
-const WHATSAPP_URL = 'https://wa.me/584221649320?text=Hola%2C%20no%20encuentro%20una%20pieza%20y%20quiero%20consultar'
 
 export default function CTABanner() {
   return (
@@ -19,7 +19,7 @@ export default function CTABanner() {
         </div>
         <div className={styles.actions}>
           <a
-            href={WHATSAPP_URL}
+            href={MISSING_PART_URL}
             className={styles.ctaWhatsapp}
             target="_blank"
             rel="noopener noreferrer"
