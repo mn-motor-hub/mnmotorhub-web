@@ -21,12 +21,27 @@ export default function MobileMenu({ links }: MobileMenuProps) {
   const triggerRef = useRef<HTMLButtonElement>(null)
 
   // Cerrar al navegar: sin esto el panel queda abierto sobre la página nueva.
-  useEffect(() => {
+  //
+  // Cada link ya cierra en su onClick, así que esto cubre lo que no pasa por
+  // ahí: back/forward del navegador con el panel abierto.
+  //
+  // Se ajusta el estado durante el render y no en un useEffect. Con el efecto,
+  // React commiteaba el panel abierto sobre la ruta nueva y recién después lo
+  // cerraba — un render de más, que es lo que marca react-hooks/set-state-in-effect.
+  // Así React descarta el render en curso y vuelve a renderizar sin pintarlo.
+  const [pathnamePrevio, setPathnamePrevio] = useState(pathname)
+  if (pathname !== pathnamePrevio) {
+    setPathnamePrevio(pathname)
     setOpen(false)
-  }, [pathname])
+  }
 
   useEffect(() => {
     if (!open) return
+
+    // Se captura acá y no en el cleanup: para entonces triggerRef.current pudo
+    // haber cambiado, y el botón que abrió el panel es el que tiene que
+    // recuperar el foco.
+    const trigger = triggerRef.current
 
     // Bloquear el scroll del fondo mientras el panel está abierto.
     const { overflow } = document.body.style
@@ -74,7 +89,7 @@ export default function MobileMenu({ links }: MobileMenuProps) {
       // El trigger es la única forma de abrir el panel, así que el foco
       // siempre vuelve ahí. Determinista, a diferencia de recordar
       // document.activeElement, que puede ser <body> según cómo se abrió.
-      triggerRef.current?.focus()
+      trigger?.focus()
     }
   }, [open])
 
