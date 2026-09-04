@@ -18,51 +18,22 @@
     gap: var(--space-2xl);
   }
 
-  .gallery,
+  .media,
   .info {
     flex: 1 1 0;
     min-width: 0;
   }
 }
 
-.gallery {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.thumbs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
 /*
-  Miniaturas informativas: hoy solo muestran las otras vistas. Cambiar la
-  imagen grande al tocarlas pediría un Client Component — ver nota en el PR.
+  El redondeo va acá y no en ProductImage: en la card del listado el radio lo
+  pone la propia card, y en la miniatura de la fila, el contenedor. Acá no hay
+  nada alrededor que lo aporte. Con galería, el frame de ProductGallery ya lo
+  trae, y redondear este wrapper le comería las esquinas a las miniaturas.
 */
-.thumb {
-  width: 72px;
-  border-radius: var(--radius-sm);
+.singleImage {
+  border-radius: var(--radius-md);
   overflow: hidden;
-  background-color: var(--color-surface-container);
-}
-
-@media (min-width: 768px) {
-  .thumb {
-    width: 88px;
-  }
-}
-
-.thumbImage {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
 }
 
 .info {

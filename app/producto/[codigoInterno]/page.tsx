@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { getCatalogItem } from '@/lib/api/catalog'
 import { formatPrice } from '@/lib/format'
-import { imagenesSecundarias } from '@/lib/images'
+import { imagenPrincipal, imagenesSecundarias } from '@/lib/images'
 import AvailabilityBadge from '@/components/AvailabilityBadge/AvailabilityBadge'
 import ProductCTA from '@/components/Product/ProductCTA'
+import ProductGallery from '@/components/Product/ProductGallery'
 import ProductImage from '@/components/ProductImage/ProductImage'
 import styles from './page.module.css'
 
@@ -33,33 +33,29 @@ export default async function ProductPage({ params }: ProductPageProps) {
   }
 
   const breadcrumb = [item.categoria, item.subcategoria].filter(Boolean).join(' / ')
-  const secundarias = imagenesSecundarias(item.imagenes)
+
+  // Portada primero y el resto en el orden del backend: es el orden en que se
+  // muestran las miniaturas y el que asume ProductGallery.
+  const principal = imagenPrincipal(item.imagenes)
+  const ordenadas = principal ? [principal, ...imagenesSecundarias(item.imagenes)] : []
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.layout}>
-        <div className={styles.gallery}>
-          <ProductImage
-            imagenes={item.imagenes}
-            alt={item.nombre}
-            sizes="(min-width: 768px) 50vw, 100vw"
-            priority
-          />
-          {secundarias.length > 0 && (
-            <ul className={styles.thumbs}>
-              {secundarias.map((img, i) => (
-                <li key={img.url} className={styles.thumb}>
-                  <Image
-                    src={img.url}
-                    alt={`${item.nombre} — vista ${i + 2}`}
-                    width={160}
-                    height={160}
-                    sizes="120px"
-                    className={styles.thumbImage}
-                  />
-                </li>
-              ))}
-            </ul>
+        <div className={styles.media}>
+          {ordenadas.length > 1 ? (
+            <ProductGallery imagenes={ordenadas} nombre={item.nombre} />
+          ) : (
+            // Una sola imagen (o ninguna) no necesita galería: se evita mandar
+            // el Client Component al navegador.
+            <div className={styles.singleImage}>
+              <ProductImage
+                imagenes={item.imagenes}
+                alt={item.nombre}
+                sizes="(min-width: 768px) 50vw, 100vw"
+                priority
+              />
+            </div>
           )}
         </div>
         <div className={styles.info}>
