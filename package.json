@@ -7,7 +7,7 @@
     "dev:fresh": "node -e \"require('fs').rmSync('.next/cache/images',{recursive:true,force:true})\" && next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
