@@ -15,6 +15,28 @@
   }
 }
 
+/* Miniatura + datos van juntos: en mobile la fila apila lead sobre side. */
+.lead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  min-width: 0;
+}
+
+.thumb {
+  flex: 0 0 72px;
+  width: 72px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .thumb {
+    flex-basis: 88px;
+    width: 88px;
+  }
+}
+
 .main {
   display: flex;
   flex-direction: column;

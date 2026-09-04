@@ -1,3 +1,9 @@
+export interface CatalogImagen {
+  /** URL pública del bucket `catalogo` (el derivado con marca de agua). */
+  url: string
+  esPrincipal: boolean
+}
+
 export interface CatalogItem {
   codigoInterno: string
   nombre: string
@@ -9,6 +15,8 @@ export interface CatalogItem {
   subcategoriaId: string | null
   precioVenta: number | null
   disponible: boolean
+  /** Ordenadas por el backend. Array vacío si el repuesto no tiene imágenes. */
+  imagenes: CatalogImagen[]
 }
 
 export interface Subcategoria {

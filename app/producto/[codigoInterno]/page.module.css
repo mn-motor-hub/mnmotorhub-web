@@ -4,6 +4,67 @@
   padding: var(--layout-section) var(--layout-edge);
 }
 
+/* Mobile: galería arriba, datos abajo. Dos columnas recién en tablet. */
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-section);
+}
+
+@media (min-width: 768px) {
+  .layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-2xl);
+  }
+
+  .gallery,
+  .info {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/*
+  Miniaturas informativas: hoy solo muestran las otras vistas. Cambiar la
+  imagen grande al tocarlas pediría un Client Component — ver nota en el PR.
+*/
+.thumb {
+  width: 72px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--color-surface-container);
+}
+
+@media (min-width: 768px) {
+  .thumb {
+    width: 88px;
+  }
+}
+
+.thumbImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
 .info {
   display: flex;
   flex-direction: column;

@@ -1,6 +1,18 @@
-import type { CatalogItem, CatalogListResponse, Categoria } from './types'
+import type { CatalogImagen, CatalogItem, CatalogListResponse, Categoria } from './types'
 
 const CATALOG_REVALIDATE_SECONDS = 90
+
+/**
+ * El campo `imagenes` se agregó al backend después de que esta web ya estaba
+ * en producción, así que la respuesta puede no traerlo hasta que ese deploy
+ * salga. Se normaliza a [] para que los componentes manejen un solo caso —
+ * mismo criterio que la normalización de `meta` en getCatalog().
+ */
+type CatalogItemRaw = Omit<CatalogItem, 'imagenes'> & { imagenes?: CatalogImagen[] }
+
+function normalizarItem(item: CatalogItemRaw): CatalogItem {
+  return { ...item, imagenes: item.imagenes ?? [] }
+}
 
 interface GetCatalogParams {
   page?: number
@@ -34,7 +46,10 @@ export async function getCatalog(params: GetCatalogParams = {}): Promise<Catalog
     throw new Error(`Error al obtener el catálogo: ${res.status}`)
   }
 
-  const json = (await res.json()) as { data: CatalogItem[]; meta?: Partial<CatalogListResponse['meta']> }
+  const json = (await res.json()) as {
+    data: CatalogItemRaw[]
+    meta?: Partial<CatalogListResponse['meta']>
+  }
 
   // El backend hoy no siempre incluye `meta` en la respuesta (verificado en producción).
   // Se normaliza acá para no romper la paginación mientras eso no esté resuelto del otro lado.
@@ -44,7 +59,7 @@ export async function getCatalog(params: GetCatalogParams = {}): Promise<Catalog
   const totalPages = json.meta?.totalPages ?? (limit > 0 ? Math.max(1, Math.ceil(total / limit)) : 1)
 
   return {
-    data: json.data,
+    data: json.data.map(normalizarItem),
     meta: { total, page, limit, totalPages },
   }
 }
@@ -62,8 +77,8 @@ export async function getCatalogItem(codigoInterno: string): Promise<CatalogItem
     throw new Error(`Error al obtener el producto: ${res.status}`)
   }
 
-  const json = (await res.json()) as { data: CatalogItem }
-  return json.data
+  const json = (await res.json()) as { data: CatalogItemRaw }
+  return normalizarItem(json.data)
 }
 
 // Pendiente de deploy en el backend (ver docs/CONTENIDO_ACTUAL.md) — puede

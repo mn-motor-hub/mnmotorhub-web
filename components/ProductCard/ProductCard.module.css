@@ -11,6 +11,10 @@
   transform: translateY(-4px);
 }
 
+.imageLink {
+  display: block;
+}
+
 .subcategory {
   align-self: flex-start;
   background-color: var(--color-surface-lowest);

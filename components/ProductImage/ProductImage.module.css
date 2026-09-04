@@ -1,0 +1,28 @@
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-surface-container);
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+  El logo de marca, no un ícono genérico: un producto sin foto sigue siendo
+  nuestro. Opacidad baja para que se lea como fondo y no compita con la foto
+  real de la tarjeta de al lado.
+*/
+.emptyLogo {
+  width: 45%;
+  height: auto;
+  opacity: 0.12;
+}
