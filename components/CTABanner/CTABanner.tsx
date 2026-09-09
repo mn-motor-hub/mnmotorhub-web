@@ -14,7 +14,7 @@ export default function CTABanner() {
             ¿NO ENCONTRÁS LA PIEZA?
           </h2>
           <p className={styles.description}>
-            Escribinos por WhatsApp con el modelo de tu vehículo y te consiguemos lo que necesitás.
+            Escribinos por WhatsApp con el modelo de tu vehículo y te conseguimos lo que necesitás.
           </p>
         </div>
         <div className={styles.actions}>
