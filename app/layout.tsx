@@ -21,7 +21,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'MN Motor Hub — Repuestos Automotrices en Venezuela',
   description:
-    'La mayor variedad de autopartes y accesorios en Venezuela. Calidad profesional garantizada para carros y motos.',
+    'Repuestos y kits de mantenimiento para carros en Venezuela. Stock real, envío a todo el país y atención directa por WhatsApp.',
   icons: {
     icon: [{ url: '/images/logo.svg', type: 'image/svg+xml' }],
     shortcut: '/images/logo.svg',
