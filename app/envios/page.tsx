@@ -4,7 +4,7 @@ import styles from '@/components/PageLayout/PageLayout.module.css'
 
 export const metadata: Metadata = {
   title: 'Política de Envíos — MN Motor Hub',
-  description: 'Enviamos a todo Venezuela por MRW y Zoom Delivery. Conocé tiempos, costos y condiciones.',
+  description: 'Enviamos a todo Venezuela por MRW y Zoom Delivery. Conoce tiempos, costos y condiciones.',
 }
 
 export default function EnviosPage() {
@@ -13,7 +13,7 @@ export default function EnviosPage() {
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>COBERTURA</h2>
         <p className={styles.body}>
-          Realizamos envíos a todo el territorio venezolano a través de las agencias MRW y Zoom Delivery. No realizamos envíos internacionales.
+          Enviamos a todo el territorio venezolano a través de las agencias MRW y Zoom Delivery. No realizamos envíos internacionales.
         </p>
       </div>
 
@@ -40,7 +40,7 @@ export default function EnviosPage() {
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>RETIRO PRESENCIAL</h2>
         <p className={styles.body}>
-          Si preferís retirar tu pedido personalmente, podemos coordinarlo. Consultanos por nuestros canales de atención para acordar lugar y horario.
+          Si prefieres retirar tu pedido personalmente, podemos coordinarlo. Consúltanos por nuestros canales de atención para acordar lugar y horario.
         </p>
       </div>
 

@@ -24,7 +24,7 @@ function IconFacebook() {
 
 export const metadata: Metadata = {
   title: 'Contáctanos — MN Motor Hub',
-  description: 'Contactanos por Instagram o Facebook. Atención personalizada de lunes a sábado.',
+  description: 'Contáctanos por Instagram o Facebook. Atención personalizada de lunes a sábado.',
 }
 
 export default function ContactoPage() {
@@ -40,7 +40,7 @@ export default function ContactoPage() {
           </div>
           <h2 className={styles.cardTitle}>INSTAGRAM</h2>
           <p className={styles.cardText}>
-            Escribinos por DM a @mnmotorhub. Respondemos consultas y coordinamos pedidos.
+            Escríbenos por DM a @mnmotorhub. Respondemos consultas y coordinamos pedidos.
           </p>
           <a
             href="https://www.instagram.com/mnmotorhub/"
@@ -58,7 +58,7 @@ export default function ContactoPage() {
           </div>
           <h2 className={styles.cardTitle}>FACEBOOK</h2>
           <p className={styles.cardText}>
-            Encontranos como MN Motor Hub. Mensajes directos y publicaciones de catálogo.
+            Encuéntranos como MN Motor Hub. Mensajes directos y publicaciones de catálogo.
           </p>
           <a
             href="https://www.facebook.com/profile.php?id=61590356652354"
@@ -91,7 +91,7 @@ export default function ContactoPage() {
         </div>
         <div className={styles.note}>
           <p className={layoutStyles.body}>
-            Somos una empresa 100% online. No contamos con local físico al público, pero podemos coordinar retiro presencial del pedido. Consultanos para acordar lugar y horario.
+            Somos una empresa 100% online. No contamos con local físico al público, pero podemos coordinar retiro presencial del pedido. Consúltanos para acordar lugar y horario.
           </p>
         </div>
       </div>

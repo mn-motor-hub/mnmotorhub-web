@@ -54,23 +54,34 @@ Estos son los 4 pilares que definen cómo trabajamos. Son la base de todo mensaj
 ## 4. VOZ Y TONO
 
 ### Personalidad de marca
-- **Directo:** Frases cortas. Sin rodeos. Como habla alguien que sabe lo que tiene.
-- **Auténtico:** Voz venezolana real. No corporativa, no fría.
-- **Honesto:** Decimos lo que podemos y no podemos hacer. Eso genera confianza.
-- **Técnico cuando hace falta:** Sabemos de motores. Lo demostramos sin presumir.
-- **Cercano sin ser informal en exceso:** Tratamos al cliente de vos, con respeto pero sin protocolo innecesario.
+- **Directo:** frases cortas, sin rodeos.
+- **Auténtico:** voz venezolana real, no corporativa.
+- **Honesto:** decimos lo que podemos y no podemos hacer.
+- **Técnico cuando hace falta:** sabemos de mecánica, lo demostramos sin presumir.
+- **Cercano sin ser informal en exceso.**
 
 ### Registro lingüístico
-Usamos **voseo venezolano** en toda la comunicación:
+Usamos **tuteo venezolano** en toda la comunicación. Nada de voseo (ni rioplatense
+ni zuliano) — el tuteo es el estándar de alcance nacional y es lo que ya usa la
+mitad del sitio hoy, sin querer.
 
 | ❌ No usar | ✅ Usar |
 |---|---|
-| "¿Puedes enviarnos el modelo?" | "¿Podés enviarnos el modelo?" |
-| "Contáctenos" | "Contactanos" / "Escribinos" |
+| "¿Podés enviarnos el modelo?" | "¿Puedes enviarnos el modelo?" |
+| "Contáctenos" / "Contactanos" | "Contáctanos" |
+| "Escribinos" | "Escríbenos" |
+| "Consultanos" | "Consúltanos" |
+| "Explorá" | "Explora" |
+| "Encontrá" / "ENCONTRÁS" | "Encuentra" / "ENCUENTRAS" |
+| "Conocé" | "Conoce" |
+| "Probá" | "Prueba" |
+| "Volvé" | "Vuelve" |
+| "preferís" / "necesitás" | "prefieres" / "necesitas" |
 | "Le informamos que..." | "Te avisamos que..." |
-| "Estimado cliente" | "Hola" / nada (directo al punto) |
+| "Estimado cliente" | "Hola" / nada — directo al punto |
 | "Disponemos de stock" | "Lo tenemos disponible" |
 | "Realizamos envíos" | "Enviamos" / "Despachamos" |
+| "consiguemos" (no existe en español) | "conseguimos" |
 
 ### Fórmulas de copy que funcionan
 
@@ -81,16 +92,17 @@ Usamos **voseo venezolano** en toda la comunicación:
 > Si no es tu pieza, te lo decimos. Así de simple.
 
 **Para disponibilidad:**
-> ¿Tenés el modelo y año? Te confirmamos en minutos.
+> ¿Tienes el modelo y año? Te confirmamos en minutos.
 
 **Para diferenciación:**
 > No vendemos genérico. Vendemos lo que funciona.
 
 ### Lo que NO somos
-- No somos un marketplace genérico
-- No somos el más barato (somos el más confiable)
-- No prometemos lo que no podemos cumplir
-- No usamos jerga corporativa ni tecnicismos innecesarios
+- No somos un marketplace genérico.
+- No somos el más barato (somos el más confiable).
+- No prometemos lo que no podemos cumplir.
+- No usamos jerga corporativa ni tecnicismos innecesarios.
+- No reclamamos certificaciones que no tenemos (nada de "OEM Certificadas").
 
 ---
 
@@ -216,7 +228,7 @@ Envío por MRW/Zoom a todo Venezuela.
 ```
 Esa pieza en este momento no la tenemos.
 No te vamos a vender algo que no encaja.
-Te avisamos cuando entre al stock — ¿querés que te anotemos?
+Te avisamos cuando entre al stock — ¿quieres que te anotemos?
 ```
 
 ### Confirmación de despacho
@@ -224,7 +236,7 @@ Te avisamos cuando entre al stock — ¿querés que te anotemos?
 Pedido [#] despachado.
 Transportista: [MRW / Zoom]
 Guía: [número]
-Podés hacer seguimiento en: [link transportista]
+Puedes hacer seguimiento en: [link transportista]
 Cualquier duda, acá estamos.
 ```
 

@@ -5,7 +5,7 @@ import CategoriasGrid from '@/components/Categorias/CategoriasGrid'
 
 export const metadata: Metadata = {
   title: 'Categorías — MN Motor Hub',
-  description: 'Explorá las categorías de repuestos automotrices disponibles en MN Motor Hub.',
+  description: 'Explora las categorías de repuestos automotrices disponibles en MN Motor Hub.',
 }
 
 export default async function CategoriasPage() {
@@ -18,7 +18,7 @@ export default async function CategoriasPage() {
   }
 
   return (
-    <PageLayout title="Categorías" subtitle="Explorá los repuestos por categoría principal" compact>
+    <PageLayout title="Categorías" subtitle="Explora los repuestos por categoría principal" compact>
       <CategoriasGrid categorias={categorias} />
     </PageLayout>
   )

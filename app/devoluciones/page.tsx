@@ -32,7 +32,7 @@ export default function DevolucionesPage() {
         <h2 className={styles.sectionTitle}>PROCESO</h2>
         <ol className={styles.orderedList}>
           <li className={styles.orderedItem}>
-            Contactanos indicando el número de pedido y describiendo el defecto.
+            Contáctanos indicando el número de pedido y describiendo el defecto.
           </li>
           <li className={styles.orderedItem}>
             Te solicitaremos fotos o video del defecto para evaluarlo.

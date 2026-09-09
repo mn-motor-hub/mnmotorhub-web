@@ -15,7 +15,7 @@ export default function Categories() {
           <div className="section-accent" />
           <h2 className={styles.title}>CATEGORÍAS DESTACADAS</h2>
           <p className={styles.subtitle}>
-            Encontrá lo que tu vehículo necesita hoy
+            Encuentra lo que tu vehículo necesita hoy
           </p>
         </div>
         <Link href="/categorias" className={styles.viewAll}>

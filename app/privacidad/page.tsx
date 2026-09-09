@@ -62,7 +62,7 @@ export default function PrivacidadPage() {
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>TUS DERECHOS</h2>
         <p className={styles.body}>
-          Podés solicitar en cualquier momento la corrección o eliminación de tus datos personales contactándonos por nuestros canales de atención, salvo aquellos que debamos conservar por obligación legal.
+          Puedes solicitar en cualquier momento la corrección o eliminación de tus datos personales contactándonos por nuestros canales de atención, salvo aquellos que debamos conservar por obligación legal.
         </p>
       </div>
     </PageLayout>

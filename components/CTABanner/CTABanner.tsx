@@ -11,10 +11,10 @@ export default function CTABanner() {
           <div className="section-accent" />
           <p className={styles.label}>ATENCIÓN PERSONALIZADA</p>
           <h2 className={styles.title}>
-            ¿NO ENCONTRÁS LA PIEZA?
+            ¿NO ENCUENTRAS LA PIEZA?
           </h2>
           <p className={styles.description}>
-            Escribinos por WhatsApp con el modelo de tu vehículo y te conseguimos lo que necesitás.
+            Escríbenos por WhatsApp con el modelo de tu vehículo y te conseguimos lo que necesitas.
           </p>
         </div>
         <div className={styles.actions}>
