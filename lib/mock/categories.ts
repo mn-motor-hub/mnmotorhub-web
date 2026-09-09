@@ -12,7 +12,7 @@ export const categories: Category[] = [
   {
     id: '1',
     name: 'Kits de Clutch',
-    subtitle: 'Kits completos para carros y motos',
+    subtitle: 'Kits completos para tu carro',
     imageUrl: '/images/productos/kit-clutch.png',
     slug: 'kits-de-clutch',
     featured: true,

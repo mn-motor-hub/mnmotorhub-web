@@ -11,7 +11,7 @@ export default function Hero() {
       <div className={styles.bgWrapper}>
         <Image
           src="/images/hero-bg.png"
-          alt="Taller de alto rendimiento con motor de motocicleta siendo ajustado, iluminación dramática con destellos naranjas industriales"
+          alt="Taller mecánico de alto rendimiento, iluminación dramática con destellos naranjas industriales"
           fill
           priority
           quality={90}
@@ -20,7 +20,7 @@ export default function Hero() {
         />
         <Image
           src="/images/hero-bg-mobile.png"
-          alt="Taller de alto rendimiento con motor de motocicleta siendo ajustado, iluminación dramática con destellos naranjas industriales"
+          alt="Taller mecánico de alto rendimiento, iluminación dramática con destellos naranjas industriales"
           fill
           priority
           quality={90}
