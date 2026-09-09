@@ -56,7 +56,7 @@ export default function Hero() {
           <div className={styles.trustBadges}>
             <div className={styles.badge}>
               <BadgeCheck size={18} className={styles.badgeIcon} />
-              <span className={styles.badgeLabel}>Marcas OEM Certificadas</span>
+              <span className={styles.badgeLabel}>Piezas Que Encajan</span>
             </div>
             <div className={styles.badge}>
               <Truck size={18} className={styles.badgeIcon} />
