@@ -22,7 +22,7 @@ export default function CatalogList({ items, hasQuery = false, emptyTitle, empty
           {emptyText ??
             (hasQuery
               ? 'No encontramos artículos que coincidan con tu búsqueda. Prueba con otro término.'
-              : 'Estamos cargando el stock disponible. Vuelve a revisar en unos días.')}
+              : 'Estamos cargando el stock real — vuelve a revisar en unos días.')}
         </p>
       </div>
     )

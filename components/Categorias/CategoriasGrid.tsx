@@ -14,7 +14,7 @@ export default function CategoriasGrid({ categorias }: CategoriasGridProps) {
         <LayoutGrid size={40} strokeWidth={1.5} className={styles.emptyIcon} />
         <p className={styles.emptyTitle}>Categorías en camino</p>
         <p className={styles.emptyText}>
-          Estamos organizando las categorías del catálogo. Vuelve a revisar en unos días.
+          Sin largas — ya casi está.
         </p>
       </div>
     )

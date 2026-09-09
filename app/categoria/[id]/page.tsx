@@ -45,8 +45,8 @@ export default async function CategoriaPage({ params, searchParams }: CategoriaP
       <CatalogList
         items={data}
         hasQuery={Boolean(q)}
-        emptyTitle={q ? undefined : 'Sin artículos'}
-        emptyText={q ? undefined : 'Todavía no hay artículos cargados en esta categoría.'}
+        emptyTitle={q ? undefined : 'Sin artículos por ahora'}
+        emptyText={q ? undefined : 'Escríbenos por WhatsApp y te decimos cuándo entra stock.'}
       />
       <Pagination
         currentPage={meta.page}
