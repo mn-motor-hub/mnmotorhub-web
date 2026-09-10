@@ -1,4 +1,5 @@
 # Contenido Actual — MN Motor Hub
+> DESACTUALIZADO — no usar como referencia, ver Notion "Narrativa Web — Correcciones Fase 1"
 > Última actualización: 2026-06-09 · v2 (post-MVP update)
 > Este documento refleja el estado real del sitio en producción.
 

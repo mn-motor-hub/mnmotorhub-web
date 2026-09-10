@@ -7,7 +7,7 @@ import { Pagination } from '@mn/design-system/ui'
 
 export const metadata: Metadata = {
   title: 'Catálogo — MN Motor Hub',
-  description: 'Repuestos automotrices disponibles para carros y motos en Venezuela.',
+  description: 'Repuestos y accesorios disponibles para carros en Venezuela.',
 }
 
 const PAGE_SIZE = 12

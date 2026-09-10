@@ -16,7 +16,7 @@
 > TU CLUTCH NO ESPERA.
 
 ### Propósito
-Ser el proveedor de repuestos automotrices más confiable y directo para el venezolano que cuida su vehículo. Sin importaciones fantasmas, sin excusas, sin venderte lo que no necesitás.
+Ser el proveedor de repuestos automotrices más confiable y directo para el venezolano que cuida su vehículo. Sin importaciones fantasmas, sin excusas, sin venderte lo que no necesitas.
 
 ### Origen
 Empresa familiar venezolana. Nacimos del conocimiento de primera mano sobre lo que es buscar una pieza de calidad en Venezuela: la escasez, los repuestos genéricos que no encajan, las respuestas que nunca llegan. Por eso existimos: para resolver ese problema con stock real y honestidad directa.
@@ -46,7 +46,7 @@ Estos son los 4 pilares que definen cómo trabajamos. Son la base de todo mensaj
 |---|---|---|
 | 1 | PIEZAS QUE ENCAJAN | Cada repuesto cumple especificaciones originales. Sin sorpresas al instalar. |
 | 2 | SI LO BUSCAS, LO TENEMOS | Stock real disponible hoy. No te mandamos a esperar. |
-| 3 | TE DECIMOS LA VERDAD | No vendemos lo que no necesitás. Si no es tu pieza, lo decimos. |
+| 3 | TE DECIMOS LA VERDAD | No vendemos lo que no necesitas. Si no es tu pieza, lo decimos. |
 | 4 | LLEGA A DONDE ESTÉS | Enviamos a todo Venezuela. Con seguimiento real. |
 
 ---
@@ -183,11 +183,11 @@ Organizar el calendario de publicaciones alrededor de estos 5 pilares:
 
 ### Pilar 1 — PRODUCTO EN STOCK
 Mostrar piezas disponibles. Foto real + precio + disponibilidad.
-> *"Kit de clutch para [marca/modelo] — disponible hoy. Escribinos."*
+> *"Kit de clutch para [marca/modelo] — disponible hoy. Escríbenos."*
 
 ### Pilar 2 — EDUCACIÓN TÉCNICA
 Tips cortos sobre mantenimiento. Cuándo cambiar qué, señales de desgaste, errores comunes.
-> *"¿Cuándo cambiar el kit de clutch? Si sentís que el carro no agarra bien al soltar el pedal, ya es hora."*
+> *"¿Cuándo cambiar el kit de clutch? Si sientes que el carro no agarra bien al soltar el pedal, ya es hora."*
 
 ### Pilar 3 — CONFIANZA Y PROCESO
 Mostrar cómo trabajamos: empaque, despacho, seguimiento, atención real.
@@ -211,7 +211,6 @@ Hola [nombre], gracias por escribirnos.
 Para conseguirte la pieza exacta, necesitamos:
 - Marca y modelo del vehículo
 - Año
-- ¿Es carro o moto?
 
 Te confirmamos disponibilidad y precio en minutos.
 ```
@@ -251,7 +250,7 @@ Cualquier duda, acá estamos.
 `#KitDeClutch` `#MantenimientoAuto` `#FiltrosDeAire` `#FrenosVenezuela` `#SuspensionAuto`
 
 **Por audiencia/contexto:**
-`#TallerMecanico` `#MecánicaVenezuela` `#CarrosVenezuela` `#MotosVenezuela` `#RepuestosOriginales`
+`#TallerMecanico` `#MecánicaVenezuela` `#CarrosVenezuela` `#RepuestosOriginales`
 
 ---
 
