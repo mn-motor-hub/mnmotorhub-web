@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { BadgeCheck, Truck, Headphones } from 'lucide-react'
+import { BadgeCheck, Headphones } from 'lucide-react'
 import { GENERAL_INQUIRY_URL } from '@/lib/contact'
 import styles from './Hero.module.css'
 
@@ -57,10 +57,6 @@ export default function Hero() {
             <div className={styles.badge}>
               <BadgeCheck size={18} className={styles.badgeIcon} />
               <span className={styles.badgeLabel}>Piezas Que Encajan</span>
-            </div>
-            <div className={styles.badge}>
-              <Truck size={18} className={styles.badgeIcon} />
-              <span className={styles.badgeLabel}>Envío a Todo Venezuela</span>
             </div>
             <div className={styles.badge}>
               <Headphones size={18} className={styles.badgeIcon} />

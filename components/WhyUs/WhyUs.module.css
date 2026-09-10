@@ -31,6 +31,16 @@
   margin-top: var(--space-sm);
 }
 
+.entity {
+  font-family: var(--font-inter);
+  font-size: var(--text-base);
+  line-height: 1.8;
+  color: var(--color-on-surface-variant);
+  margin-top: var(--space-lg);
+  /* Medida de lectura: el párrafo no debe cruzar todo el contenedor. */
+  max-width: 68ch;
+}
+
 /* ─── Grid ───────────────────────── */
 .grid {
   display: grid;
