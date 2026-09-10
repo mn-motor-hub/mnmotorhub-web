@@ -26,7 +26,7 @@ Empresa familiar venezolana. Nacimos del conocimiento de primera mano sobre lo q
 ## 2. AUDIENCIA OBJETIVO
 
 ### Perfil principal — El dueño de vehículo activo
-- **Quién es:** Venezolano de 25–50 años, dueño de carro o moto, con vehículo como herramienta de trabajo o necesidad diaria.
+- **Quién es:** Venezolano de 25–50 años, dueño de carro, con vehículo como herramienta de trabajo o necesidad diaria.
 - **Su problema:** Necesita una pieza específica, no quiere comprar genérico, desconfía de vendedores que le venden lo primero que tienen.
 - **Lo que valora:** Que le digan la verdad. Que la pieza llegue. Que alguien sepa de qué está hablando.
 - **Cómo compra:** WhatsApp primero, pregunta modelo y año, espera respuesta rápida. Decide por confianza, no solo precio.

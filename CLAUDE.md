@@ -34,7 +34,7 @@
 
 ## Contexto del proyecto
 
-Tienda online de repuestos automotrices (carros y motos) para el mercado venezolano.
+Tienda online de repuestos automotrices para carros, para el mercado venezolano.
 El negocio es una sociedad familiar (ver documentos legales en `/docs`).
 La web es el primer canal de ventas y presencia de marca.
 
@@ -148,46 +148,50 @@ debajo de 44px, agregar `min-height: var(--touch-min)`.
 ├── app/
 │   ├── layout.tsx          ← root layout: fonts, metadata, globals.css
 │   ├── page.tsx            ← homepage: compone todas las secciones (Server Component)
-│   ├── globals.css         ← NO va acá — está en /styles/
-│   └── favicon.ico
+│   ├── not-found.tsx       ← 404
+│   ├── catalogo/           ← listado paginado + búsqueda (?page, ?q)
+│   ├── categorias/         ← grilla de las categorías del ERP
+│   ├── categoria/[id]/     ← categoría por UUID del backend
+│   ├── producto/[codigoInterno]/  ← ficha + CTA a WhatsApp
+│   ├── contacto/
+│   ├── envios/
+│   ├── devoluciones/
+│   └── privacidad/
 ├── components/
-│   ├── Navbar/
-│   │   ├── Navbar.tsx
-│   │   └── Navbar.module.css
+│   ├── Navbar/             ← Navbar.tsx · MobileMenu.tsx ('use client') · navLinks.ts
 │   ├── Hero/
-│   │   ├── Hero.tsx
-│   │   └── Hero.module.css
-│   ├── TrustBar/
-│   │   ├── TrustBar.tsx
-│   │   └── TrustBar.module.css
-│   ├── Categories/
-│   │   ├── Categories.tsx
-│   │   └── Categories.module.css
+│   ├── QuickFacts/         ← franja de hechos citables, bajo el hero
+│   ├── Categories/         ← bento de la home (datos de lib/mock)
 │   ├── FeaturedProducts/
-│   │   ├── FeaturedProducts.tsx
-│   │   ├── ProductCard.tsx
-│   │   └── FeaturedProducts.module.css
-│   ├── WhyUs/
-│   │   ├── WhyUs.tsx
-│   │   └── WhyUs.module.css
+│   ├── WhyUs/              ← párrafo de entidad + 4 pilares
 │   ├── CTABanner/
-│   │   ├── CTABanner.tsx
-│   │   └── CTABanner.module.css
-│   └── Footer/
-│       ├── Footer.tsx
-│       └── Footer.module.css
+│   ├── Footer/
+│   ├── PageLayout/         ← hero band + contenedor de las páginas internas
+│   ├── Catalog/            ← CatalogList · CatalogSearch ('use client') · ProductListItem
+│   ├── Categorias/         ← CategoriasGrid · CategoriaCard
+│   ├── Product/            ← ProductCTA · ProductGallery ('use client')
+│   ├── ProductCard/        ← card de la home
+│   ├── ProductImage/       ← portada del producto + estado vacío de marca
+│   └── AvailabilityBadge/  ← traduce el stock a variante del design system
+├── lib/
+│   ├── api/                ← catalog.ts (fetch al backend) · types.ts
+│   ├── contact.ts          ← WhatsApp: número único y plantillas de mensaje
+│   ├── format.ts           ← formatPrice
+│   ├── images.ts           ← portada y secundarias de un producto
+│   └── mock/
+│       └── categories.ts   ← solo las 4 tarjetas de la home
 ├── styles/
-│   └── globals.css         ← CSS variables, resets, base
+│   └── globals.css         ← importa los tokens del paquete + resets
 ├── design/
 │   ├── DESIGN.md           ← fuente de verdad visual (Stitch)
-│   ├── screen.png          ← screenshot de referencia
-│   └── code.html           ← HTML original de Stitch (fuente para conversión)
+│   ├── screen.png · code.html
+│   └── initial/            ← primera iteración de Stitch
+├── docs/
+│   ├── BRAND_KIT.md        ← identidad, voz y tono
+│   └── CONTENIDO_ACTUAL.md ← DESACTUALIZADO — ver Notion
 ├── public/
 │   └── images/
-│       └── .gitkeep
-├── docs/
-│   ├── 01_Acuerdo_de_Socios.docx
-│   └── 02_Registro_Aporte_Capital.docx
+│       └── productos/
 ├── CLAUDE.md               ← este archivo
 ├── next.config.ts
 ├── tsconfig.json
@@ -239,51 +243,59 @@ Al convertir a componentes Next.js:
 
 ## Secciones a construir
 
-### Fase 1 — Landing inicial (MVP)
-- [x] Navbar
-- [x] Hero (con imagen + overlay + trust badges)
-- [x] Categories grid (bento layout, 2 cards actuales → expandir a 4)
-- [ ] Featured Products (grid 4 columnas, 8 cards placeholder)
-- [ ] Why Us (4 pilares: Garantía OEM, Stock Permanente, Asesoría Técnica, Envíos)
-- [ ] CTA Banner final
+### Fase 1 — Landing inicial (MVP) — completa
+- [x] Navbar (con menú hamburguesa en mobile)
+- [x] Hero (imagen + overlay + trust badges)
+- [x] QuickFacts (franja de hechos citables)
+- [x] Categories grid (bento: 2 destacadas + 2 chips "Próximamente")
+- [x] Featured Products (6 cards desde la API)
+- [x] Why Us (párrafo de entidad + 4 pilares: Piezas Que Encajan · Si Lo Buscas Lo
+      Tenemos · Te Decimos La Verdad · Llega A Donde Estés)
+- [x] CTA Banner final
 - [x] Footer
 
-### Fase 2 — Funcionalidad (post-lanzamiento)
-- [ ] Página de catálogo con filtros
-- [ ] Página de producto individual
-- [ ] Búsqueda
+### Fase 2 — Funcionalidad
+- [x] Integración con el backend (`API_BASE_URL/api/catalog`)
+- [x] Página de catálogo, paginada
+- [x] Búsqueda por texto (`CatalogSearch`, vía `?q=`)
+- [x] Página de producto individual
+- [x] CTA de WhatsApp en ficha, hero y CTA banner
+- [ ] Filtros del catálogo (marca, rango de precio) — hoy solo hay búsqueda
 - [ ] Carrito (Context o Zustand)
-- [ ] Formulario de contacto / WhatsApp CTA
-- [ ] Integración con sistema de inventario (Control_Financiero_Repuestos.xlsx como fuente inicial)
+- [ ] Formulario de contacto propio — hoy la conversión es 100% WhatsApp
 
 ---
 
-## Datos mock (Fase 1)
+## Datos del catálogo
 
-Usar datos hardcodeados en `/lib/mock/` hasta tener backend.
+El catálogo viene del backend, no de mocks. `lib/api/catalog.ts` consume
+`API_BASE_URL/api/catalog` con `next: { revalidate: 90 }`.
 
 ```typescript
-// lib/mock/products.ts
-export interface Product {
-  id: string
-  name: string
-  category: string
-  price: number        // en USD
-  imageUrl: string
-  slug: string
-}
-
-// lib/mock/categories.ts
-export interface Category {
-  id: string
-  name: string
-  subtitle: string
-  imageUrl: string
-  slug: string
+// lib/api/types.ts — forma real que devuelve el backend
+export interface CatalogItem {
+  codigoInterno: string       // también es el slug de la ficha: /producto/MNM-0501-00001
+  nombre: string
+  descripcion: string | null  // hoy duplica `nombre` en todo el catálogo
+  marca: string | null        // hoy vacío en el 100% del catálogo
+  categoria: string | null
+  subcategoria: string | null
+  categoriaId: string | null
+  subcategoriaId: string | null
+  precioVenta: number | null
+  disponible: boolean
+  imagenes: CatalogImagen[]
 }
 ```
 
-Categorías iniciales: Motor, Frenos, Escape, Suspensión, Iluminación, Accesorios
+Lo único mockeado es `lib/mock/categories.ts`, con las 4 tarjetas de la home
+(Kits de Clutch, Mantenimiento, Frenos, Suspensión).
+
+⚠️ **Esa taxonomía no coincide con la del ERP**, que expone 14 categorías
+identificadas por UUID vía `/api/catalog/categorias`. Las tarjetas de la home
+enlazan por `slug` y la ruta `/categoria/[id]` resuelve por UUID, así que hoy
+**devuelven 404**. No replicar ese patrón: cualquier enlace nuevo a una
+categoría tiene que salir del `id` que devuelve la API.
 
 ---
 
