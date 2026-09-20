@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { getCategorias } from '@/lib/api/catalog'
-import { categories as comingSoonCategories } from '@/lib/mock/categories'
 import styles from './Categories.module.css'
 
 interface FeaturedCategoryConfig {
@@ -36,6 +35,21 @@ const FEATURED_CATEGORIES: FeaturedCategoryConfig[] = [
   },
 ]
 
+interface SecondaryCategoryConfig {
+  categoriaId: string
+  name: string
+}
+
+/**
+ * Ids reales del ERP para los chips secundarios (MN-40). Mismo criterio que
+ * FEATURED_CATEGORIES: si el ERP borra el id, el chip deja de mostrarse en
+ * vez de enlazar a un 404.
+ */
+const SECONDARY_CATEGORIES: SecondaryCategoryConfig[] = [
+  { categoriaId: '578e87f4-5de3-4b0c-b14f-f19aeeca273f', name: 'Frenos' }, // SISTEMA FRENOS
+  { categoriaId: 'c05757e7-5c23-4da0-9fe3-382e6e51615a', name: 'Suspensión' }, // SUSPENSION
+]
+
 export default async function Categories() {
   let categorias: Awaited<ReturnType<typeof getCategorias>> = []
 
@@ -46,6 +60,11 @@ export default async function Categories() {
   }
 
   const featured = FEATURED_CATEGORIES.flatMap((config) => {
+    const categoria = categorias.find((c) => c.id === config.categoriaId)
+    return categoria ? [{ ...config, id: categoria.id }] : []
+  })
+
+  const secondary = SECONDARY_CATEGORIES.flatMap((config) => {
     const categoria = categorias.find((c) => c.id === config.categoriaId)
     return categoria ? [{ ...config, id: categoria.id }] : []
   })
@@ -89,14 +108,11 @@ export default async function Categories() {
       </div>
 
       <div className={styles.secondaryGrid}>
-        {comingSoonCategories.map((cat) => (
-          <div key={cat.id} className="soon-wrap">
-            <span className="soon-label">Próximamente</span>
-            <Link href="#" className={styles.chip}>
-              <span className={styles.chipName}>{cat.name}</span>
-              <ArrowRight size={14} className={styles.chipArrow} />
-            </Link>
-          </div>
+        {secondary.map((cat) => (
+          <Link key={cat.id} href={`/categoria/${cat.id}`} className={styles.chip}>
+            <span className={styles.chipName}>{cat.name}</span>
+            <ArrowRight size={14} className={styles.chipArrow} />
+          </Link>
         ))}
       </div>
     </section>

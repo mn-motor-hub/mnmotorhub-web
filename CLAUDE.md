@@ -178,9 +178,7 @@ debajo de 44px, agregar `min-height: var(--touch-min)`.
 │   ├── api/                ← catalog.ts (fetch al backend) · types.ts
 │   ├── contact.ts          ← WhatsApp: número único y plantillas de mensaje
 │   ├── format.ts           ← formatPrice
-│   ├── images.ts           ← portada y secundarias de un producto
-│   └── mock/
-│       └── categories.ts   ← solo las 4 tarjetas de la home
+│   └── images.ts           ← portada y secundarias de un producto
 ├── styles/
 │   └── globals.css         ← importa los tokens del paquete + resets
 ├── design/
@@ -289,18 +287,18 @@ export interface CatalogItem {
 }
 ```
 
-Lo único mockeado es `lib/mock/categories.ts`, con las 2 tarjetas
-"Próximamente" de la home (Frenos, Suspensión) — no enlazan a nada todavía
-(`href="#"`).
-
-Las 2 tarjetas destacadas de la home (Kits de Clutch, Mantenimiento) ya no
-salen del mock: `components/Categories/Categories.tsx` las resuelve contra
-`getCategorias()` (14 categorías reales, identificadas por UUID vía
-`/api/catalog/categorias`). El ERP no tiene categorías con esos nombres
-literales, así que el componente fija a mano el UUID real más equivalente
-para cada una (SISTEMA DE EMBRAGUE Y CAJA, FILTROS) — es una decisión de
-negocio, no un mapeo de slugs. Cualquier enlace nuevo a una categoría tiene
-que salir del `id` que devuelve la API, nunca de un slug inventado.
+Las 4 tarjetas/chips de categoría de la home (Kits de Clutch, Mantenimiento,
+Frenos, Suspensión) no salen de mocks: `components/Categories/Categories.tsx`
+las resuelve contra `getCategorias()` (14 categorías reales, identificadas por
+UUID vía `/api/catalog/categorias`). Para Kits de Clutch/Mantenimiento el ERP
+no tiene categorías con esos nombres literales, así que el componente fija a
+mano el UUID real más equivalente para cada una (SISTEMA DE EMBRAGUE Y CAJA,
+FILTROS) — es una decisión de negocio, no un mapeo de slugs. Para
+Frenos/Suspensión los nombres sí matchean casi exacto contra el ERP (SISTEMA
+FRENOS, SUSPENSION). En los 4 casos, si el ERP borra el id la tarjeta/chip
+deja de mostrarse en vez de enlazar a un 404. Cualquier enlace nuevo a una
+categoría tiene que salir del `id` que devuelve la API, nunca de un slug
+inventado.
 
 ---
 

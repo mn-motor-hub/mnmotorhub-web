@@ -67,24 +67,3 @@ ul, ol {
   margin-bottom: var(--space-sm);
 }
 
-/* ─── Coming soon wrapper ───────────────────────────────────── */
-.soon-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  align-items: flex-start;
-}
-
-.soon-label {
-  font-family: var(--font-inter);
-  font-size: var(--text-2xs);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-primary-dim);
-  background: rgba(var(--color-primary-dim-rgb), 0.08);
-  border: 1px solid var(--overlay-accent-border);
-  border-radius: var(--radius-sm);
-  padding: var(--space-2xs) var(--space-xs);
-  white-space: nowrap;
-}
