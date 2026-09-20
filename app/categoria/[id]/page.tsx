@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getCatalog, getCategoriaById } from '@/lib/api/catalog'
+import { buildCategoriaDescription } from '@/lib/seo'
 import PageLayout from '@/components/PageLayout/PageLayout'
 import CatalogSearch from '@/components/Catalog/CatalogSearch'
 import CatalogList from '@/components/Catalog/CatalogList'
@@ -21,7 +22,10 @@ export async function generateMetadata({ params }: CategoriaPageProps): Promise<
     return { title: 'Categoría no encontrada — MN Motor Hub' }
   }
 
-  return { title: `${categoria.nombre} — MN Motor Hub` }
+  return {
+    title: `${categoria.nombre} — MN Motor Hub`,
+    description: buildCategoriaDescription(categoria),
+  }
 }
 
 export default async function CategoriaPage({ params, searchParams }: CategoriaPageProps) {

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { getCatalogItem } from '@/lib/api/catalog'
 import { formatPrice } from '@/lib/format'
 import { imagenPrincipal, imagenesSecundarias } from '@/lib/images'
+import { buildProductDescription } from '@/lib/seo'
 import AvailabilityBadge from '@/components/AvailabilityBadge/AvailabilityBadge'
 import ProductCTA from '@/components/Product/ProductCTA'
 import ProductGallery from '@/components/Product/ProductGallery'
@@ -21,7 +22,10 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     return { title: 'Producto no encontrado — MN Motor Hub' }
   }
 
-  return { title: `${item.nombre} — MN Motor Hub` }
+  return {
+    title: `${item.nombre} — MN Motor Hub`,
+    description: buildProductDescription(item),
+  }
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
