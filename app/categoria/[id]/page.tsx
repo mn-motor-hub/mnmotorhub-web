@@ -2,9 +2,15 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getCatalog, getCategoriaById } from '@/lib/api/catalog'
 import { buildCategoriaDescription } from '@/lib/seo'
+import {
+  buildBreadcrumbJsonLd,
+  homeBreadcrumbEntry,
+  absoluteUrl,
+} from '@/lib/structured-data'
 import PageLayout from '@/components/PageLayout/PageLayout'
 import CatalogSearch from '@/components/Catalog/CatalogSearch'
 import CatalogList from '@/components/Catalog/CatalogList'
+import JsonLd from '@/components/JsonLd/JsonLd'
 import { Pagination } from '@mn/design-system/ui'
 
 const PAGE_SIZE = 12
@@ -46,8 +52,14 @@ export default async function CategoriaPage({ params, searchParams }: CategoriaP
 
   const { data, meta } = await getCatalog({ page, limit: PAGE_SIZE, categoriaId: id, q })
 
+  const breadcrumbEntries = [
+    homeBreadcrumbEntry(),
+    { name: categoria.nombre, url: absoluteUrl(`/categoria/${id}`) },
+  ]
+
   return (
     <PageLayout title={categoria.nombre} subtitle="Artículos disponibles en esta categoría" compact>
+      <JsonLd data={buildBreadcrumbJsonLd(breadcrumbEntries)} />
       <CatalogSearch basePath={`/categoria/${id}`} placeholder="Buscar por nombre o marca" />
       <CatalogList
         items={data}

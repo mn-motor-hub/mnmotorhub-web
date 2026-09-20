@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Oswald, Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer/Footer'
+import JsonLd from '@/components/JsonLd/JsonLd'
+import { buildOrganizationJsonLd } from '@/lib/structured-data'
 import '@/styles/globals.css'
 
 const oswald = Oswald({
@@ -41,6 +43,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${oswald.variable} ${inter.variable}`}>
       <body suppressHydrationWarning>
+        <JsonLd data={buildOrganizationJsonLd()} />
         <Navbar />
         <main>{children}</main>
         <Footer />

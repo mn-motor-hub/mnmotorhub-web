@@ -4,7 +4,15 @@ import { getCatalogItem } from '@/lib/api/catalog'
 import { formatPrice } from '@/lib/format'
 import { imagenPrincipal, imagenesSecundarias } from '@/lib/images'
 import { buildProductDescription } from '@/lib/seo'
+import {
+  buildProductJsonLd,
+  buildBreadcrumbJsonLd,
+  homeBreadcrumbEntry,
+  absoluteUrl,
+  type BreadcrumbEntry,
+} from '@/lib/structured-data'
 import AvailabilityBadge from '@/components/AvailabilityBadge/AvailabilityBadge'
+import JsonLd from '@/components/JsonLd/JsonLd'
 import ProductCTA from '@/components/Product/ProductCTA'
 import ProductGallery from '@/components/Product/ProductGallery'
 import ProductImage from '@/components/ProductImage/ProductImage'
@@ -39,6 +47,24 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   const breadcrumb = [item.categoria, item.subcategoria].filter(Boolean).join(' / ')
 
+  // Migaja para JSON-LD: la categoría sólo lleva `item` (URL) si además
+  // tenemos su UUID — sin categoriaId no hay a dónde enlazarla. La
+  // subcategoría nunca lleva `item`: no tiene ruta propia en el sitio.
+  const breadcrumbEntries: BreadcrumbEntry[] = [homeBreadcrumbEntry()]
+  if (item.categoria) {
+    breadcrumbEntries.push({
+      name: item.categoria,
+      url: item.categoriaId ? absoluteUrl(`/categoria/${item.categoriaId}`) : undefined,
+    })
+  }
+  if (item.subcategoria) {
+    breadcrumbEntries.push({ name: item.subcategoria })
+  }
+  breadcrumbEntries.push({
+    name: item.nombre,
+    url: absoluteUrl(`/producto/${item.codigoInterno}`),
+  })
+
   // Portada primero y el resto en el orden del backend: es el orden en que se
   // muestran las miniaturas y el que asume ProductGallery.
   const principal = imagenPrincipal(item.imagenes)
@@ -46,6 +72,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <div className={styles.wrapper}>
+      <JsonLd data={buildProductJsonLd(item)} />
+      <JsonLd data={buildBreadcrumbJsonLd(breadcrumbEntries)} />
       <div className={styles.layout}>
         <div className={styles.media}>
           {ordenadas.length > 1 ? (
