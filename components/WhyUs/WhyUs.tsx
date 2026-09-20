@@ -16,9 +16,9 @@ const pillars = [
   },
   {
     icon: Wrench,
-    title: 'TE DECIMOS LA VERDAD',
+    title: 'CONFIRMAMOS ANTES DE VENDER',
     description:
-      'No te vendemos lo que no necesitas. Si no es tu pieza, te lo decimos. Si lo es, te explicamos por qué.',
+      'Antes de cerrar la venta, confirmamos que es la pieza correcta para tu carro. Si no es la que buscás, te ayudamos a encontrarla.',
   },
   {
     icon: Truck,
