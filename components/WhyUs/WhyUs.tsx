@@ -47,10 +47,8 @@ export default function WhyUs() {
           <p className={styles.entity}>
             MN Motor Hub es una empresa familiar venezolana que vende repuestos y kits de
             mantenimiento para carros, con stock real y despacho a todo el país a través de
-            MRW y Zoom Delivery. Empezamos a operar en junio de 2026, desde el mismo problema
-            que resolvemos: la dificultad de conseguir en Venezuela una pieza que realmente
-            encaje, con alguien que te diga la verdad sobre lo que necesitas. Trabajamos 100%
-            online, por WhatsApp, sin local físico al público.
+            MRW y Zoom Delivery. Empezamos a operar en junio de 2026, 100% online y por
+            WhatsApp, sin local físico al público por el momento.
           </p>
         </div>
 
