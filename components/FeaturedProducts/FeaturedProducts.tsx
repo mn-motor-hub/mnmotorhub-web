@@ -3,7 +3,7 @@ import { getCatalog } from '@/lib/api/catalog'
 import ProductCard from '@/components/ProductCard/ProductCard'
 import styles from './FeaturedProducts.module.css'
 
-const FEATURED_LIMIT = 6
+const FEATURED_LIMIT = 8
 
 export default async function FeaturedProducts() {
   let items: Awaited<ReturnType<typeof getCatalog>>['data'] = []
