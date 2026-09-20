@@ -30,6 +30,18 @@ function getApiBaseUrl(): string {
   return baseUrl
 }
 
+const CATALOG_INTERNAL_KEY = process.env.CATALOG_INTERNAL_KEY
+
+if (!CATALOG_INTERNAL_KEY) {
+  console.warn(
+    'CATALOG_INTERNAL_KEY no está configurada — las llamadas a /api/catalog van a fallar (401) en cuanto el backend empiece a exigir el header'
+  )
+}
+
+function catalogHeaders(): HeadersInit {
+  return { 'X-Internal-Api-Key': CATALOG_INTERNAL_KEY ?? '' }
+}
+
 export async function getCatalog(params: GetCatalogParams = {}): Promise<CatalogListResponse> {
   const searchParams = new URLSearchParams()
   if (params.page) searchParams.set('page', String(params.page))
@@ -39,6 +51,7 @@ export async function getCatalog(params: GetCatalogParams = {}): Promise<Catalog
   if (params.subcategoriaId) searchParams.set('subcategoriaId', params.subcategoriaId)
 
   const res = await fetch(`${getApiBaseUrl()}/api/catalog?${searchParams.toString()}`, {
+    headers: catalogHeaders(),
     next: { revalidate: CATALOG_REVALIDATE_SECONDS },
   })
 
@@ -66,6 +79,7 @@ export async function getCatalog(params: GetCatalogParams = {}): Promise<Catalog
 
 export async function getCatalogItem(codigoInterno: string): Promise<CatalogItem | null> {
   const res = await fetch(`${getApiBaseUrl()}/api/catalog/${encodeURIComponent(codigoInterno)}`, {
+    headers: catalogHeaders(),
     next: { revalidate: CATALOG_REVALIDATE_SECONDS },
   })
 
@@ -86,6 +100,7 @@ export async function getCatalogItem(codigoInterno: string): Promise<CatalogItem
 // degradar (ver app/categorias/page.tsx).
 export async function getCategorias(): Promise<Categoria[]> {
   const res = await fetch(`${getApiBaseUrl()}/api/catalog/categorias`, {
+    headers: catalogHeaders(),
     next: { revalidate: CATALOG_REVALIDATE_SECONDS },
   })
 
