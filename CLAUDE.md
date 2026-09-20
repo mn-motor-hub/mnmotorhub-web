@@ -161,7 +161,8 @@ debajo de 44px, agregar `min-height: var(--touch-min)`.
 │   ├── Navbar/             ← Navbar.tsx · MobileMenu.tsx ('use client') · navLinks.ts
 │   ├── Hero/
 │   ├── QuickFacts/         ← franja de hechos citables, bajo el hero
-│   ├── Categories/         ← bento de la home (datos de lib/mock)
+│   ├── Categories/         ← bento de la home (2 destacadas de la API real +
+│   │                          2 "Próximamente" de lib/mock)
 │   ├── FeaturedProducts/
 │   ├── WhyUs/              ← párrafo de entidad + 4 pilares
 │   ├── CTABanner/
@@ -288,14 +289,18 @@ export interface CatalogItem {
 }
 ```
 
-Lo único mockeado es `lib/mock/categories.ts`, con las 4 tarjetas de la home
-(Kits de Clutch, Mantenimiento, Frenos, Suspensión).
+Lo único mockeado es `lib/mock/categories.ts`, con las 2 tarjetas
+"Próximamente" de la home (Frenos, Suspensión) — no enlazan a nada todavía
+(`href="#"`).
 
-⚠️ **Esa taxonomía no coincide con la del ERP**, que expone 14 categorías
-identificadas por UUID vía `/api/catalog/categorias`. Las tarjetas de la home
-enlazan por `slug` y la ruta `/categoria/[id]` resuelve por UUID, así que hoy
-**devuelven 404**. No replicar ese patrón: cualquier enlace nuevo a una
-categoría tiene que salir del `id` que devuelve la API.
+Las 2 tarjetas destacadas de la home (Kits de Clutch, Mantenimiento) ya no
+salen del mock: `components/Categories/Categories.tsx` las resuelve contra
+`getCategorias()` (14 categorías reales, identificadas por UUID vía
+`/api/catalog/categorias`). El ERP no tiene categorías con esos nombres
+literales, así que el componente fija a mano el UUID real más equivalente
+para cada una (SISTEMA DE EMBRAGUE Y CAJA, FILTROS) — es una decisión de
+negocio, no un mapeo de slugs. Cualquier enlace nuevo a una categoría tiene
+que salir del `id` que devuelve la API, nunca de un slug inventado.
 
 ---
 
