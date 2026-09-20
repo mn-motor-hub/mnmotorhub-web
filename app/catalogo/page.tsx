@@ -8,6 +8,9 @@ import { Pagination } from '@mn/design-system/ui'
 export const metadata: Metadata = {
   title: 'Catálogo — MN Motor Hub',
   description: 'Repuestos y accesorios disponibles para carros en Venezuela.',
+  // Fijo a /catalogo: ?page y ?q no deben competir por indexación con la
+  // versión sin querystring.
+  alternates: { canonical: '/catalogo' },
 }
 
 const PAGE_SIZE = 12

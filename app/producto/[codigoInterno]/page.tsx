@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   return {
     title: `${item.nombre} — MN Motor Hub`,
     description: buildProductDescription(item),
+    alternates: { canonical: `/producto/${codigoInterno}` },
   }
 }
 

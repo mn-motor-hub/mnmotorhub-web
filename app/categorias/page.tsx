@@ -6,6 +6,7 @@ import CategoriasGrid from '@/components/Categorias/CategoriasGrid'
 export const metadata: Metadata = {
   title: 'Categorías — MN Motor Hub',
   description: 'Explora las categorías de repuestos automotrices disponibles en MN Motor Hub.',
+  alternates: { canonical: '/categorias' },
 }
 
 export default async function CategoriasPage() {

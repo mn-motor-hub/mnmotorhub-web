@@ -19,6 +19,10 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  // Literal a propósito, no `process.env.NEXT_PUBLIC_SITE_URL` — esa variable
+  // no existe en este repo (ver CLAUDE.md). Resuelve a absolutas las
+  // `alternates.canonical` relativas de las páginas hijas.
+  metadataBase: new URL('https://mnmotorhub.com'),
   title: 'MN Motor Hub — Repuestos Automotrices en Venezuela',
   description:
     'Repuestos y kits de mantenimiento para carros en Venezuela. Stock real, envío a todo el país y atención directa por WhatsApp.',

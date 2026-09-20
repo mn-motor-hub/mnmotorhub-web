@@ -25,6 +25,9 @@ export async function generateMetadata({ params }: CategoriaPageProps): Promise<
   return {
     title: `${categoria.nombre} — MN Motor Hub`,
     description: buildCategoriaDescription(categoria),
+    // Fijo a la categoría sin querystring: ?page y ?q no deben competir por
+    // indexación con esta URL.
+    alternates: { canonical: `/categoria/${id}` },
   }
 }
 
