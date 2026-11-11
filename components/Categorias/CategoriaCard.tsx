@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
 import type { Categoria } from '@/lib/api/types'
 import styles from './CategoriaCard.module.css'
 
@@ -26,9 +25,6 @@ export default function CategoriaCard({ categoria }: CategoriaCardProps) {
     <Link href={`/categoria/${categoria.id}`} className={styles.card}>
       <h3 className={styles.name}>{categoria.nombre}</h3>
       {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
-      <span className={styles.link}>
-        Ver artículos <ArrowRight size={16} />
-      </span>
     </Link>
   )
 }

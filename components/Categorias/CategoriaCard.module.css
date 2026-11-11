@@ -30,17 +30,3 @@
   color: var(--color-on-surface-variant);
   text-transform: capitalize;
 }
-
-.link {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
-  margin-top: auto;
-  padding-top: var(--space-sm);
-  font-family: var(--font-inter);
-  font-size: var(--text-sm);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--color-primary);
-}
