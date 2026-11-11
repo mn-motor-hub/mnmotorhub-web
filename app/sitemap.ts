@@ -10,7 +10,6 @@ const SITEMAP_PAGE_SIZE = 50
 
 const RUTAS_FIJAS = [
   '/',
-  '/catalogo',
   '/categorias',
   '/contacto',
   '/envios',

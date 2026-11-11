@@ -101,10 +101,3 @@
   }
 }
 
-.price {
-  font-family: var(--font-oswald);
-  font-size: var(--text-xl);
-  font-weight: 600;
-  color: var(--color-primary);
-  white-space: nowrap;
-}

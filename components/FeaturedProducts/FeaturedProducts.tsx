@@ -1,4 +1,3 @@
-import { ArrowRight } from 'lucide-react'
 import { getCatalog } from '@/lib/api/catalog'
 import ProductCard from '@/components/ProductCard/ProductCard'
 import styles from './FeaturedProducts.module.css'
@@ -27,9 +26,6 @@ export default async function FeaturedProducts() {
           <h2 className={styles.title}>Productos Destacados</h2>
           <p className={styles.subtitle}>Los más buscados por nuestros clientes</p>
         </div>
-        <a href="/catalogo" className={styles.viewAll}>
-          Ver catálogo completo <ArrowRight size={16} />
-        </a>
       </div>
 
       <div className={styles.grid}>

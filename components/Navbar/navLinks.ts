@@ -11,7 +11,6 @@ export interface NavLink {
 }
 
 export const navLinks: NavLink[] = [
-  { label: 'Catálogo', href: '/catalogo' },
   { label: 'Categorías', href: '/categorias' },
   { label: '¿Por qué nosotros?', href: '#por-que-nosotros' },
   {

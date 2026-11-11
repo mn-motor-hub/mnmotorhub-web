@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { BadgeCheck, Headphones } from 'lucide-react'
 import { GENERAL_INQUIRY_URL } from '@/lib/contact'
 import styles from './Hero.module.css'
@@ -40,9 +39,6 @@ export default function Hero() {
             Kits completos y repuestos de mantenimiento con envío a todo Venezuela. Stock real, respuesta inmediata.
           </p>
           <div className={styles.ctas}>
-            <Link href="/catalogo" className={styles.ctaPrimary}>
-              Ver catálogo
-            </Link>
             <a
               href={GENERAL_INQUIRY_URL}
               className={styles.ctaSecondary}

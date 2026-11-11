@@ -74,21 +74,8 @@ export function buildProductJsonLd(item: CatalogItem): object {
     sku: item.codigoInterno,
     productID: item.codigoInterno,
     url,
-    // Sin precio no hay Offer válida para schema.org — se omite en vez de
-    // mandar un `price` inventado.
-    ...(item.precioVenta !== null
-      ? {
-          offers: {
-            '@type': 'Offer',
-            url,
-            priceCurrency: 'USD',
-            price: item.precioVenta,
-            availability: item.disponible
-              ? 'https://schema.org/InStock'
-              : 'https://schema.org/OutOfStock',
-          },
-        }
-      : {}),
+    // Temporary: `offers` is omitted so no price reaches the public HTML while
+    // the catalog is hidden. Restore it together with the prices.
   }
 }
 

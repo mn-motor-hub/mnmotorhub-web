@@ -78,9 +78,3 @@
   padding-top: var(--space-md);
 }
 
-.price {
-  font-family: var(--font-oswald);
-  font-size: var(--text-2xl);
-  font-weight: 600;
-  color: var(--color-primary);
-}

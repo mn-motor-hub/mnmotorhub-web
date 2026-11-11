@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getCatalogItem } from '@/lib/api/catalog'
-import { formatPrice } from '@/lib/format'
 import { imagenPrincipal, imagenesSecundarias } from '@/lib/images'
 import { buildProductDescription } from '@/lib/seo'
 import {
@@ -96,7 +95,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <h1 className={styles.name}>{item.nombre}</h1>
           {item.marca && <p className={styles.brand}>Marca: {item.marca}</p>}
           {item.descripcion && <p className={styles.description}>{item.descripcion}</p>}
-          <p className={styles.price}>{formatPrice(item.precioVenta)}</p>
           <AvailabilityBadge disponible={item.disponible} />
           {/* El código es lo que el cliente cita al consultar */}
           <p className={styles.code}>Código: {item.codigoInterno}</p>

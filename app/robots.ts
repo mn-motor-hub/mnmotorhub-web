@@ -10,10 +10,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      // La búsqueda de texto libre del catálogo siempre navega a
-      // `/catalogo?q=...` sin combinarla con `page` (ver CatalogSearch.navigate) —
-      // el prefijo alcanza para bloquear todas sus variantes.
-      disallow: '/catalogo?q=*',
+      // El catálogo está oculto temporalmente (la ruta responde 404): se
+      // bloquea la ruta completa, no solo sus variantes de búsqueda.
+      disallow: '/catalogo',
     },
     sitemap: `${SITE_URL}/sitemap.xml`,
   }

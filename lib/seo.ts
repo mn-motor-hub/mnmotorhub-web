@@ -1,5 +1,4 @@
 import type { CatalogItem, Categoria } from './api/types'
-import { formatPrice } from './format'
 
 const MAX_SUBCATEGORIAS_EN_DESCRIPTION = 4
 
@@ -9,7 +8,7 @@ export function buildProductDescription(item: CatalogItem): string {
     : ''
   const disponibilidad = item.disponible ? 'Disponible' : 'Consulta disponibilidad por WhatsApp'
 
-  return `${item.nombre}${categoriaSegment} en MN Motor Hub. ${formatPrice(item.precioVenta)}. ${disponibilidad}. Envío a todo Venezuela.`
+  return `${item.nombre}${categoriaSegment} en MN Motor Hub. ${disponibilidad}. Envío a todo Venezuela.`
 }
 
 export function buildCategoriaDescription(categoria: Categoria): string {

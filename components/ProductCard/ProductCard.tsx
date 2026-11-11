@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import type { CatalogItem } from '@/lib/api/types'
-import { formatPrice } from '@/lib/format'
 import AvailabilityBadge from '@/components/AvailabilityBadge/AvailabilityBadge'
 import ProductImage from '@/components/ProductImage/ProductImage'
 import styles from './ProductCard.module.css'
@@ -34,7 +33,6 @@ export default function ProductCard({ item }: ProductCardProps) {
         {item.marca && <span className={styles.brand}>{item.marca}</span>}
         {item.descripcion && <p className={styles.description}>{item.descripcion}</p>}
         <div className={styles.footer}>
-          <span className={styles.price}>{formatPrice(item.precioVenta)}</span>
           <AvailabilityBadge disponible={item.disponible} />
         </div>
       </div>
